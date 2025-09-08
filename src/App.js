@@ -200,7 +200,7 @@ function Home({ onStart }) {
       }}>
         <h2 style={{ marginBottom: "20px", color: "#fff" }}>Contact Us</h2>
         <a
-          href="https://wa.me/201234567890"
+          href="https://wa.me/201012201021"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-btn"
@@ -209,7 +209,7 @@ function Home({ onStart }) {
           WhatsApp
         </a>
         <a
-          href="https://facebook.com/yourpage"
+          href="https://www.facebook.com/profile.php?id=61578271988798"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-btn"
