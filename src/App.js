@@ -18,22 +18,54 @@ function Home({ onStart }) {
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
         textAlign: "center",
         padding: "20px",
+        position: "relative"
       }}
     >
+      {/* Navbar */}
+      <div style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        display: "flex",
+        justifyContent: "flex-end",
+        padding: "20px 40px",
+        backgroundColor: "rgba(0,0,0,0.2)",
+        backdropFilter: "blur(5px)",
+      }}>
+        <button
+          onClick={onStart}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#ffcc00",
+            color: "#004d40",
+            border: "none",
+            borderRadius: "8px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            transition: "0.3s",
+          }}
+          onMouseOver={(e) => (e.target.style.backgroundColor = "#e6b800")}
+          onMouseOut={(e) => (e.target.style.backgroundColor = "#ffcc00")}
+        >
+          Login
+        </button>
+      </div>
+
       <img
         src="/ORCA.png"
         alt="ORCA Logo"
         style={{
-          width: "150px",
+          width: "200px",
           marginBottom: "20px",
           borderRadius: "50%",
-          boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+          boxShadow: "0 5px 25px rgba(0,0,0,0.4)",
         }}
       />
-      <h1 style={{ fontSize: "40px", marginBottom: "10px" }}>
+      <h1 style={{ fontSize: "48px", marginBottom: "10px" }}>
         ORCA Swimming Academy
       </h1>
-      <p style={{ fontSize: "18px", marginBottom: "30px", maxWidth: "500px" }}>
+      <p style={{ fontSize: "20px", marginBottom: "30px", maxWidth: "600px" }}>
         Welcome to ORCA Academy 🏊‍♂️ <br />
         Learn, train, and achieve excellence in swimming with our professional
         coaches and tailored programs.
@@ -41,12 +73,12 @@ function Home({ onStart }) {
       <button
         onClick={onStart}
         style={{
-          padding: "15px 35px",
+          padding: "15px 40px",
           backgroundColor: "#ffcc00",
           color: "#004d40",
           border: "none",
           borderRadius: "12px",
-          fontSize: "20px",
+          fontSize: "22px",
           fontWeight: "bold",
           cursor: "pointer",
           transition: "0.3s",
@@ -81,7 +113,7 @@ function Login({ onLogin }) {
         s?.Name?.trim().toLowerCase() === name.trim().toLowerCase() &&
         s?.["phone number"]?.trim() === phone.trim()
     );
-    if (!found) return alert("البيانات غير موجودة");
+    if (!found) return alert("Data not found ❌");
     onLogin(found);
   };
 
@@ -173,7 +205,15 @@ function App() {
   const [student, setStudent] = useState(null);
 
   if (page === "schedule" && student) return <Schedule student={student} />;
-  if (page === "login") return <Login onLogin={(s) => { setStudent(s); setPage("schedule"); }} />;
+  if (page === "login")
+    return (
+      <Login
+        onLogin={(s) => {
+          setStudent(s);
+          setPage("schedule");
+        }}
+      />
+    );
   return <Home onStart={() => setPage("login")} />;
 }
 
