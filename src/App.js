@@ -152,9 +152,9 @@ function Home({ onStart }) {
       }}>
         <h2 style={{ marginBottom: "20px", color: "#fff", fontSize: "28px" }}>Training Gallery</h2>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
-          <img src="/training1.jpg" alt="Training 1" style={{ width: "220px", borderRadius: "14px", boxShadow: "0 2px 8px #004d40" }} />
-          <img src="/training2.jpg" alt="Training 2" style={{ width: "220px", borderRadius: "14px", boxShadow: "0 2px 8px #004d40" }} />
-          <img src="/training3.jpg" alt="Training 3" style={{ width: "220px", borderRadius: "14px", boxShadow: "0 2px 8px #004d40" }} />
+          <img src="/training1.JPG" alt="Training 1" style={{ width: "220px", borderRadius: "14px", boxShadow: "0 2px 8px #004d40" }} />
+          <img src="/training2.JPG" alt="Training 2" style={{ width: "220px", borderRadius: "14px", boxShadow: "0 2px 8px #004d40" }} />
+          <img src="/training3.JPG" alt="Training 3" style={{ width: "220px", borderRadius: "14px", boxShadow: "0 2px 8px #004d40" }} />
         </div>
       </div>
 
