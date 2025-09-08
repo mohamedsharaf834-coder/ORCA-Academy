@@ -18,7 +18,7 @@ function Home({ onStart }) {
         alignItems: "center",
       }}
     >
-      {/* Topbar */}
+      {/* Topbar ثابت فوق */}
       <div
         className="topbar"
         style={{
@@ -31,9 +31,10 @@ function Home({ onStart }) {
           gap: "24px",
           borderBottomLeftRadius: "12px",
           borderBottomRightRadius: "12px",
-          position: "sticky",
+          position: "fixed", // ثابت فوق
           top: 0,
-          zIndex: 10,
+          left: 0,
+          zIndex: 100,
         }}
       >
         <button className="nav-btn" style={{
@@ -47,8 +48,6 @@ function Home({ onStart }) {
           cursor: "pointer",
           transition: "background 0.2s",
         }}
-        onMouseOver={e => (e.target.style.background = "#009688")}
-        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
         >About</button>
         <button className="nav-btn" style={{
           background: "rgba(255,255,255,0.08)",
@@ -61,8 +60,6 @@ function Home({ onStart }) {
           cursor: "pointer",
           transition: "background 0.2s",
         }}
-        onMouseOver={e => (e.target.style.background = "#009688")}
-        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
         >Courses</button>
         <button className="nav-btn" style={{
           background: "rgba(255,255,255,0.08)",
@@ -75,84 +72,60 @@ function Home({ onStart }) {
           cursor: "pointer",
           transition: "background 0.2s",
         }}
-        onMouseOver={e => (e.target.style.background = "#009688")}
-        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
         >Contact</button>
       </div>
 
-      {/* Navbar */}
-      <div className="navbar" style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexWrap: "wrap",
-        padding: "20px 0",
-        gap: "10px",
-        width: "100%",
-        maxWidth: "700px",
-      }}>
-        <button className="nav-btn" onClick={onStart}>
-          Login
-        </button>
-        <a
-          href="https://wa.me/201234567890"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-btn"
-          style={{ background: "#25D366", color: "#fff" }}
-        >
-          WhatsApp
-        </a>
-        <a
-          href="https://facebook.com/yourpage"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-btn"
-          style={{
-            background: "#1877f3",
-            color: "#fff",
-            minWidth: "100px",
-            borderRadius: "16px",
-            padding: "8px 20px",
-            fontSize: "17px",
-            fontWeight: "500",
-            textAlign: "center",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap"
-          }}
-        >
-          Facebook
-        </a>
-      </div>
-
-      <div className="home-content" style={{ width: "100%", maxWidth: "700px", textAlign: "center" }}>
-        <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" style={{ maxWidth: "220px", width: "100%" }} />
-        <h1>ORCA Swimming Academy</h1>
-        <p>
-          Welcome to ORCA Academy 🏊‍♂️ <br />
-          Learn, train, and achieve excellence in swimming with our professional
-          coaches and tailored programs.
-        </p>
-        <div style={{ marginBottom: "20px", fontWeight: "bold" }}>
-          للتواصل: 01012201021
+      {/* محتوى الصفحة */}
+      <div style={{ marginTop: "70px", width: "100%" }}>
+        <div className="home-content" style={{ width: "100%", maxWidth: "700px", textAlign: "center", margin: "0 auto" }}>
+          <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" style={{ maxWidth: "220px", width: "100%" }} />
+          <h1>ORCA Swimming Academy</h1>
+          <p>
+            Welcome to ORCA Academy 🏊‍♂️ <br />
+            Learn, train, and achieve excellence in swimming with our professional
+            coaches and tailored programs.
+          </p>
+          <div style={{ marginBottom: "20px", fontWeight: "bold" }}>
+            للتواصل: 01012201021
+          </div>
+          <button className="get-started-btn" onClick={onStart}>
+            Get Started
+          </button>
         </div>
-        <button className="get-started-btn" onClick={onStart}>
-          Get Started
-        </button>
-      </div>
 
-      {/* صور التدريب */}
-      <div style={{ width: "100%", maxWidth: "800px", margin: "40px auto", textAlign: "center" }}>
-        <h2 style={{ marginBottom: "20px", color: "#00796b" }}>صور من التدريب</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
-          <img src="/training1.jpg" alt="تدريب 1" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
-          <img src="/training2.jpg" alt="تدريب 2" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
-          <img src="/training3.jpg" alt="تدريب 3" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+        {/* صور التدريب */}
+        <div style={{ width: "100%", maxWidth: "800px", margin: "40px auto", textAlign: "center" }}>
+          <h2 style={{ marginBottom: "20px", color: "#00796b" }}>صور من التدريب</h2>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
+            <img src="/training1.jpg" alt="تدريب 1" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+            <img src="/training2.jpg" alt="تدريب 2" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+            <img src="/training3.jpg" alt="تدريب 3" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+          </div>
+        </div>
+
+        {/* جزء التواصل (Contact) */}
+        <div style={{ width: "100%", maxWidth: "700px", margin: "40px auto", textAlign: "center" }}>
+          <h2 style={{ marginBottom: "20px", color: "#00796b" }}>تواصل معنا</h2>
+          <a
+            href="https://wa.me/201234567890"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-btn"
+            style={{ background: "#25D366", color: "#fff", margin: "0 10px", borderRadius: "16px", padding: "10px 24px", fontSize: "18px", fontWeight: "500" }}
+          >
+            WhatsApp
+          </a>
+          <a
+            href="https://facebook.com/yourpage"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-btn"
+            style={{ background: "#1877f3", color: "#fff", margin: "0 10px", borderRadius: "16px", padding: "10px 24px", fontSize: "18px", fontWeight: "500" }}
+          >
+            Facebook
+          </a>
         </div>
       </div>
-
-      {/* ممكن تضيف حاجات تانية تحت زي فيديو أو آراء الطلاب أو أي محتوى تاني */}
 
       {/* Footer */}
       <footer style={{
