@@ -2,31 +2,64 @@
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import Schedule from "./Schedule";
-import "./App.css"; // لو حابب تستخدم CSS خارجي
+import "./App.css";
 
 // ----- Home Page -----
 function Home({ onStart }) {
   return (
     <div className="home-container">
+      {/* Topbar */}
+      <div className="topbar" style={{ width: "100%", padding: "10px 0", background: "#00796b", color: "#fff", display: "flex", justifyContent: "center", gap: "30px" }}>
+        <button className="nav-btn" style={{ background: "transparent", color: "#fff" }}>About</button>
+        <button className="nav-btn" style={{ background: "transparent", color: "#fff" }}>Courses</button>
+        <button className="nav-btn" style={{ background: "transparent", color: "#fff" }}>Contact</button>
+      </div>
+
       {/* Navbar */}
       <div className="navbar">
         <button className="nav-btn" onClick={onStart}>
           Login
         </button>
+        <a
+          href="https://wa.me/201234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-btn"
+          style={{ background: "#25D366", color: "#fff", marginLeft: "10px" }}
+        >
+          WhatsApp
+        </a>
+        <a
+          href="https://facebook.com/yourpage"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-btn"
+          style={{ background: "#1877f3", color: "#fff", marginLeft: "10px" }}
+        >
+          Facebook
+        </a>
       </div>
 
       <div className="home-content">
-        <img src="/ORCA.png" alt="ORCA Logo" className="logo-large" />
+        <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" />
         <h1>ORCA Swimming Academy</h1>
         <p>
           Welcome to ORCA Academy 🏊‍♂️ <br />
           Learn, train, and achieve excellence in swimming with our professional
           coaches and tailored programs.
         </p>
+        <div style={{ marginBottom: "20px", fontWeight: "bold" }}>
+          للتواصل: 01234567890 - 01122334455
+        </div>
         <button className="get-started-btn" onClick={onStart}>
           Get Started
         </button>
       </div>
+
+      {/* Footer */}
+      <footer style={{ marginTop: "40px", padding: "15px 0", background: "#004d40", color: "#fff", width: "100%", textAlign: "center", borderRadius: "12px" }}>
+        &copy; {new Date().getFullYear()} ORCA Swimming Academy. جميع الحقوق محفوظة.
+      </footer>
     </div>
   );
 }
@@ -58,7 +91,7 @@ function Login({ onLogin }) {
 
   return (
     <div className="login-container">
-      <img src="/ORCA.png" alt="ORCA Logo" className="logo-small" />
+      <img src="/ORCA2.png" alt="ORCA Logo" className="logo-small" />
       <h1>LOGIN</h1>
       <input
         value={name}
