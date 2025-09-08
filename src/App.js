@@ -135,12 +135,24 @@ function Home({ onStart }) {
           coaches and tailored programs.
         </p>
         <div style={{ marginBottom: "20px", fontWeight: "bold" }}>
-          للتواصل: 01012201021 - 01122334455
+          للتواصل: 01012201021
         </div>
         <button className="get-started-btn" onClick={onStart}>
           Get Started
         </button>
       </div>
+
+      {/* صور التدريب */}
+      <div style={{ width: "100%", maxWidth: "800px", margin: "40px auto", textAlign: "center" }}>
+        <h2 style={{ marginBottom: "20px", color: "#00796b" }}>صور من التدريب</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
+          <img src="/training1.jpg" alt="تدريب 1" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+          <img src="/training2.jpg" alt="تدريب 2" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+          <img src="/training3.jpg" alt="تدريب 3" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+        </div>
+      </div>
+
+      {/* ممكن تضيف حاجات تانية تحت زي فيديو أو آراء الطلاب أو أي محتوى تاني */}
 
       {/* Footer */}
       <footer style={{
