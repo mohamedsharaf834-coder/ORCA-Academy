@@ -92,7 +92,7 @@ function Home({ onStart }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: "110px",
+        marginTop: "140px", // تم زيادة المسافة من فوق
         marginBottom: "30px"
       }}>
         <img src="/ORCA2.png" alt="ORCA Logo"
@@ -101,7 +101,7 @@ function Home({ onStart }) {
             width: "100%",
             boxShadow: "0 4px 24px #00332c",
             borderRadius: "50%",
-            background: "#fff",
+            background: "rgba(0,77,64,0.7)", // خلفية غامقة شفافة بدل الأبيض
             padding: "18px"
           }}
         />
