@@ -7,12 +7,76 @@ import "./App.css";
 // ----- Home Page -----
 function Home({ onStart }) {
   return (
-    <div className="home-container">
+    <div className="home-container" style={{ minHeight: "100vh", boxSizing: "border-box", overflowX: "hidden" }}>
       {/* Topbar */}
-      <div className="topbar" style={{ width: "100%", padding: "10px 0", background: "#00796b", color: "#fff", display: "flex", justifyContent: "center", gap: "30px" }}>
-        <button className="nav-btn" style={{ background: "transparent", color: "#fff" }}>About</button>
-        <button className="nav-btn" style={{ background: "transparent", color: "#fff" }}>Courses</button>
-        <button className="nav-btn" style={{ background: "transparent", color: "#fff" }}>Contact</button>
+      <div
+        className="topbar"
+        style={{
+          width: "100%",
+          padding: "10px 0",
+          background: "#00796b",
+          color: "#fff",
+          display: "flex",
+          justifyContent: "center",
+          gap: "30px",
+          borderBottomLeftRadius: "12px",
+          borderBottomRightRadius: "12px",
+        }}
+      >
+        <button
+          className="nav-btn"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "20px",
+            padding: "8px 24px",
+            fontSize: "18px",
+            fontWeight: "500",
+            cursor: "pointer",
+            transition: "background 0.2s",
+          }}
+          onMouseOver={e => (e.target.style.background = "#009688")}
+          onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
+        >
+          About
+        </button>
+        <button
+          className="nav-btn"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "20px",
+            padding: "8px 24px",
+            fontSize: "18px",
+            fontWeight: "500",
+            cursor: "pointer",
+            transition: "background 0.2s",
+          }}
+          onMouseOver={e => (e.target.style.background = "#009688")}
+          onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
+        >
+          Courses
+        </button>
+        <button
+          className="nav-btn"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "20px",
+            padding: "8px 24px",
+            fontSize: "18px",
+            fontWeight: "500",
+            cursor: "pointer",
+            transition: "background 0.2s",
+          }}
+          onMouseOver={e => (e.target.style.background = "#009688")}
+          onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
+        >
+          Contact
+        </button>
       </div>
 
       {/* Navbar */}
