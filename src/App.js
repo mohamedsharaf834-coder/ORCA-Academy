@@ -7,20 +7,18 @@ import "./App.css";
 // ----- Home Page -----
 function Home({ onStart }) {
   return (
-    <div className="home-container" style={{ minHeight: "100vh", boxSizing: "border-box", overflowX: "hidden", background: "linear-gradient(to bottom, #e0f7fa, #ffffff)" }}>
+    <div className="home-container" style={{ minHeight: "100vh", background: "linear-gradient(to bottom, #e0f7fa, #ffffff)" }}>
       {/* Topbar ثابت فوق */}
       <div
         className="topbar"
         style={{
           width: "100%",
-          padding: "10px 0",
+          padding: "12px 0",
           background: "#00796b",
           color: "#fff",
           display: "flex",
           justifyContent: "center",
-          gap: "24px",
-          borderBottomLeftRadius: "12px",
-          borderBottomRightRadius: "12px",
+          gap: "32px",
           position: "fixed",
           top: 0,
           left: 0,
@@ -28,71 +26,66 @@ function Home({ onStart }) {
           boxShadow: "0 2px 8px #ccc"
         }}
       >
-        <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.10)",
-          color: "#fff",
-          border: "none",
-          borderRadius: "20px",
-          padding: "8px 24px",
-          fontSize: "18px",
-          fontWeight: "500",
-          cursor: "pointer",
-          margin: "0 8px"
-        }}>About</button>
-        <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.10)",
-          color: "#fff",
-          border: "none",
-          borderRadius: "20px",
-          padding: "8px 24px",
-          fontSize: "18px",
-          fontWeight: "500",
-          cursor: "pointer",
-          margin: "0 8px"
-        }}>Courses</button>
-        <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.10)",
-          color: "#fff",
-          border: "none",
-          borderRadius: "20px",
-          padding: "8px 24px",
-          fontSize: "18px",
-          fontWeight: "500",
-          cursor: "pointer",
-          margin: "0 8px"
-        }}>Contact</button>
+        <a href="#about" className="nav-btn" style={{ color: "#fff", fontWeight: "bold", textDecoration: "none", fontSize: "18px" }}>عن الأكاديمية</a>
+        <a href="#gallery" className="nav-btn" style={{ color: "#fff", fontWeight: "bold", textDecoration: "none", fontSize: "18px" }}>صور التدريب</a>
+        <a href="#activities" className="nav-btn" style={{ color: "#fff", fontWeight: "bold", textDecoration: "none", fontSize: "18px" }}>الأنشطة</a>
+        <a href="#contact" className="nav-btn" style={{ color: "#fff", fontWeight: "bold", textDecoration: "none", fontSize: "18px" }}>تواصل معنا</a>
       </div>
 
       {/* محتوى الصفحة */}
-      <div style={{ marginTop: "80px", width: "100%" }}>
-        <div className="home-content" style={{ width: "100%", maxWidth: "700px", textAlign: "center", margin: "0 auto", padding: "20px" }}>
-          <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" style={{ maxWidth: "220px", width: "100%", marginBottom: "20px" }} />
-          <h1 style={{ color: "#00796b", marginBottom: "10px" }}>ORCA Swimming Academy</h1>
+      <div style={{ marginTop: "80px" }}>
+        {/* Hero Section */}
+        <div id="about" style={{ textAlign: "center", padding: "40px 10px 20px", background: "#e0f7fa", borderRadius: "16px", maxWidth: "800px", margin: "0 auto 40px" }}>
+          <img src="/ORCA2.png" alt="ORCA Logo" style={{ maxWidth: "180px", marginBottom: "20px" }} />
+          <h1 style={{ color: "#00796b", fontSize: "38px", marginBottom: "15px" }}>ORCA Swimming Academy</h1>
           <p style={{ fontSize: "20px", color: "#004d40", marginBottom: "20px" }}>
-            Welcome to ORCA Academy 🏊‍♂️ <br />
-            Learn, train, and achieve excellence in swimming with our professional coaches and tailored programs.
+            أكاديمية أوركا للسباحة 🏊‍♂️<br />
+            تعلم، تدرب، وحقق التميز مع أفضل المدربين وبرامج تدريبية مخصصة لكل الأعمار والمستويات.
           </p>
-          <div style={{ marginBottom: "20px", fontWeight: "bold", color: "#00796b", fontSize: "18px" }}>
+          <div style={{ fontWeight: "bold", color: "#00796b", fontSize: "18px", marginBottom: "10px" }}>
             للتواصل: 01012201021
           </div>
-          <button className="get-started-btn" onClick={onStart}>
-            Get Started
+          <button className="get-started-btn" onClick={onStart} style={{ background: "#00796b", color: "#fff", borderRadius: "16px", padding: "10px 32px", fontSize: "18px", fontWeight: "bold", border: "none", marginTop: "10px" }}>
+            تسجيل الدخول
           </button>
         </div>
 
-        {/* صور التدريب */}
-        <div style={{ width: "100%", maxWidth: "900px", margin: "40px auto", textAlign: "center" }}>
-          <h2 style={{ marginBottom: "20px", color: "#00796b" }}>صور من التدريب</h2>
+        {/* Gallery Section */}
+        <div id="gallery" style={{ width: "100%", maxWidth: "900px", margin: "0 auto 40px", textAlign: "center" }}>
+          <h2 style={{ marginBottom: "20px", color: "#00796b", fontSize: "28px" }}>صور من التدريب</h2>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
             <img src="/training1.jpg" alt="تدريب 1" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
             <img src="/training2.jpg" alt="تدريب 2" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
             <img src="/training3.jpg" alt="تدريب 3" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
-            {/* ممكن تزود صور تانية بنفس الشكل */}
+            {/* أضف صور أخرى بنفس الشكل */}
           </div>
         </div>
 
-        {/* جزء التواصل (Contact) */}
-        <div style={{ width: "100%", maxWidth: "700px", margin: "40px auto", textAlign: "center", background: "#e0f7fa", borderRadius: "12px", padding: "20px 0", boxShadow: "0 2px 8px #ccc" }}>
+        {/* Activities Section */}
+        <div id="activities" style={{ background: "#e0f7fa", borderRadius: "16px", maxWidth: "900px", margin: "0 auto 40px", padding: "30px 0" }}>
+          <h2 style={{ color: "#00796b", fontSize: "28px", marginBottom: "20px" }}>أنشطة الأكاديمية</h2>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
+            <div style={{ width: "260px", background: "#fff", borderRadius: "12px", boxShadow: "0 2px 8px #ccc", padding: "15px" }}>
+              <img src="/activity1.jpg" alt="نشاط 1" style={{ width: "100%", borderRadius: "10px", marginBottom: "10px" }} />
+              <h3 style={{ color: "#00796b", fontSize: "20px" }}>تدريب سباحة للأطفال</h3>
+              <p style={{ color: "#004d40", fontSize: "15px" }}>برامج تدريبية مخصصة للأطفال مع مدربين محترفين.</p>
+            </div>
+            <div style={{ width: "260px", background: "#fff", borderRadius: "12px", boxShadow: "0 2px 8px #ccc", padding: "15px" }}>
+              <img src="/activity2.jpg" alt="نشاط 2" style={{ width: "100%", borderRadius: "10px", marginBottom: "10px" }} />
+              <h3 style={{ color: "#00796b", fontSize: "20px" }}>تدريب سباحة للكبار</h3>
+              <p style={{ color: "#004d40", fontSize: "15px" }}>تطوير المهارات واللياقة للكبار في بيئة آمنة.</p>
+            </div>
+            <div style={{ width: "260px", background: "#fff", borderRadius: "12px", boxShadow: "0 2px 8px #ccc", padding: "15px" }}>
+              <img src="/activity3.jpg" alt="نشاط 3" style={{ width: "100%", borderRadius: "10px", marginBottom: "10px" }} />
+              <h3 style={{ color: "#00796b", fontSize: "20px" }}>بطولات ومسابقات</h3>
+              <p style={{ color: "#004d40", fontSize: "15px" }}>تنظيم بطولات ومسابقات سباحة على مدار السنة.</p>
+            </div>
+            {/* أضف أنشطة أخرى بنفس الشكل */}
+          </div>
+        </div>
+
+        {/* Contact Section */}
+        <div id="contact" style={{ width: "100%", maxWidth: "700px", margin: "0 auto 40px", textAlign: "center", background: "#e0f7fa", borderRadius: "12px", padding: "20px 0", boxShadow: "0 2px 8px #ccc" }}>
           <h2 style={{ marginBottom: "20px", color: "#00796b" }}>تواصل معنا</h2>
           <a
             href="https://wa.me/201234567890"
@@ -117,7 +110,7 @@ function Home({ onStart }) {
 
       {/* Footer */}
       <footer style={{
-        marginTop: "40px",
+        marginTop: "20px",
         padding: "15px 0",
         background: "#004d40",
         color: "#fff",
