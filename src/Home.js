@@ -15,8 +15,9 @@ function Home({ onStart }) {
         padding: "20px",
       }}
     >
-     <img src="/ORCA2.png" alt="ORCA Logo" />
-
+      <img
+        src="/ORCA2.png"
+        alt="ORCA Logo"
         style={{
           width: "150px",
           marginBottom: "20px",
