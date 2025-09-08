@@ -18,69 +18,68 @@ function Home({ onStart }) {
           color: "#fff",
           display: "flex",
           justifyContent: "center",
-          gap: "30px",
+          gap: "20px",
           borderBottomLeftRadius: "12px",
           borderBottomRightRadius: "12px",
+          flexWrap: "wrap",
         }}
       >
-        <button
-          className="nav-btn"
-          style={{
-            background: "rgba(255,255,255,0.08)",
-            color: "#fff",
-            border: "none",
-            borderRadius: "20px",
-            padding: "8px 24px",
-            fontSize: "18px",
-            fontWeight: "500",
-            cursor: "pointer",
-            transition: "background 0.2s",
-          }}
-          onMouseOver={e => (e.target.style.background = "#009688")}
-          onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
-        >
-          About
-        </button>
-        <button
-          className="nav-btn"
-          style={{
-            background: "rgba(255,255,255,0.08)",
-            color: "#fff",
-            border: "none",
-            borderRadius: "20px",
-            padding: "8px 24px",
-            fontSize: "18px",
-            fontWeight: "500",
-            cursor: "pointer",
-            transition: "background 0.2s",
-          }}
-          onMouseOver={e => (e.target.style.background = "#009688")}
-          onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
-        >
-          Courses
-        </button>
-        <button
-          className="nav-btn"
-          style={{
-            background: "rgba(255,255,255,0.08)",
-            color: "#fff",
-            border: "none",
-            borderRadius: "20px",
-            padding: "8px 24px",
-            fontSize: "18px",
-            fontWeight: "500",
-            cursor: "pointer",
-            transition: "background 0.2s",
-          }}
-          onMouseOver={e => (e.target.style.background = "#009688")}
-          onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
-        >
-          Contact
-        </button>
+        <button className="nav-btn" style={{
+          background: "rgba(255,255,255,0.10)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "16px",
+          padding: "8px 20px",
+          fontSize: "17px",
+          fontWeight: "500",
+          cursor: "pointer",
+          transition: "background 0.2s",
+          minWidth: "100px"
+        }}
+        onMouseOver={e => (e.target.style.background = "#009688")}
+        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.10)")}
+        >About</button>
+        <button className="nav-btn" style={{
+          background: "rgba(255,255,255,0.10)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "16px",
+          padding: "8px 20px",
+          fontSize: "17px",
+          fontWeight: "500",
+          cursor: "pointer",
+          transition: "background 0.2s",
+          minWidth: "100px"
+        }}
+        onMouseOver={e => (e.target.style.background = "#009688")}
+        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.10)")}
+        >Courses</button>
+        <button className="nav-btn" style={{
+          background: "rgba(255,255,255,0.10)",
+          color: "#fff",
+          border: "none",
+          borderRadius: "16px",
+          padding: "8px 20px",
+          fontSize: "17px",
+          fontWeight: "500",
+          cursor: "pointer",
+          transition: "background 0.2s",
+          minWidth: "100px"
+        }}
+        onMouseOver={e => (e.target.style.background = "#009688")}
+        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.10)")}
+        >Contact</button>
       </div>
 
       {/* Navbar */}
-      <div className="navbar">
+      <div className="navbar" style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        padding: "20px 0",
+        gap: "10px"
+      }}>
         <button className="nav-btn" onClick={onStart}>
           Login
         </button>
@@ -89,7 +88,7 @@ function Home({ onStart }) {
           target="_blank"
           rel="noopener noreferrer"
           className="nav-btn"
-          style={{ background: "#25D366", color: "#fff", marginLeft: "10px" }}
+          style={{ background: "#25D366", color: "#fff" }}
         >
           WhatsApp
         </a>
@@ -98,7 +97,14 @@ function Home({ onStart }) {
           target="_blank"
           rel="noopener noreferrer"
           className="nav-btn"
-          style={{ background: "#1877f3", color: "#fff", marginLeft: "10px" }}
+          style={{
+            background: "#1877f3",
+            color: "#fff",
+            maxWidth: "120px",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap"
+          }}
         >
           Facebook
         </a>
@@ -113,7 +119,7 @@ function Home({ onStart }) {
           coaches and tailored programs.
         </p>
         <div style={{ marginBottom: "20px", fontWeight: "bold" }}>
-          للتواصل: 01234567890 - 01122334455
+          للتواصل: 01012201021 - 01122334455
         </div>
         <button className="get-started-btn" onClick={onStart}>
           Get Started
@@ -121,7 +127,16 @@ function Home({ onStart }) {
       </div>
 
       {/* Footer */}
-      <footer style={{ marginTop: "40px", padding: "15px 0", background: "#004d40", color: "#fff", width: "100%", textAlign: "center", borderRadius: "12px" }}>
+      <footer style={{
+        marginTop: "40px",
+        padding: "15px 0",
+        background: "#004d40",
+        color: "#fff",
+        width: "100%",
+        textAlign: "center",
+        borderRadius: "12px",
+        fontSize: "16px"
+      }}>
         &copy; {new Date().getFullYear()} ORCA Swimming Academy. جميع الحقوق محفوظة.
       </footer>
     </div>
