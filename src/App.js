@@ -7,7 +7,17 @@ import "./App.css";
 // ----- Home Page -----
 function Home({ onStart }) {
   return (
-    <div className="home-container" style={{ minHeight: "100vh", boxSizing: "border-box", overflowX: "hidden" }}>
+    <div
+      className="home-container"
+      style={{
+        minHeight: "100vh",
+        boxSizing: "border-box",
+        overflowX: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       {/* Topbar */}
       <div
         className="topbar"
@@ -18,56 +28,55 @@ function Home({ onStart }) {
           color: "#fff",
           display: "flex",
           justifyContent: "center",
-          gap: "20px",
+          gap: "24px",
           borderBottomLeftRadius: "12px",
           borderBottomRightRadius: "12px",
-          flexWrap: "wrap",
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
         }}
       >
         <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.10)",
+          background: "rgba(255,255,255,0.08)",
           color: "#fff",
           border: "none",
-          borderRadius: "16px",
-          padding: "8px 20px",
-          fontSize: "17px",
+          borderRadius: "20px",
+          padding: "8px 24px",
+          fontSize: "18px",
           fontWeight: "500",
           cursor: "pointer",
           transition: "background 0.2s",
-          minWidth: "100px"
         }}
         onMouseOver={e => (e.target.style.background = "#009688")}
-        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.10)")}
+        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
         >About</button>
         <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.10)",
+          background: "rgba(255,255,255,0.08)",
           color: "#fff",
           border: "none",
-          borderRadius: "16px",
-          padding: "8px 20px",
-          fontSize: "17px",
+          borderRadius: "20px",
+          padding: "8px 24px",
+          fontSize: "18px",
           fontWeight: "500",
           cursor: "pointer",
           transition: "background 0.2s",
-          minWidth: "100px"
         }}
         onMouseOver={e => (e.target.style.background = "#009688")}
-        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.10)")}
+        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
         >Courses</button>
         <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.10)",
+          background: "rgba(255,255,255,0.08)",
           color: "#fff",
           border: "none",
-          borderRadius: "16px",
-          padding: "8px 20px",
-          fontSize: "17px",
+          borderRadius: "20px",
+          padding: "8px 24px",
+          fontSize: "18px",
           fontWeight: "500",
           cursor: "pointer",
           transition: "background 0.2s",
-          minWidth: "100px"
         }}
         onMouseOver={e => (e.target.style.background = "#009688")}
-        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.10)")}
+        onMouseOut={e => (e.target.style.background = "rgba(255,255,255,0.08)")}
         >Contact</button>
       </div>
 
@@ -78,7 +87,9 @@ function Home({ onStart }) {
         alignItems: "center",
         flexWrap: "wrap",
         padding: "20px 0",
-        gap: "10px"
+        gap: "10px",
+        width: "100%",
+        maxWidth: "700px",
       }}>
         <button className="nav-btn" onClick={onStart}>
           Login
@@ -100,7 +111,12 @@ function Home({ onStart }) {
           style={{
             background: "#1877f3",
             color: "#fff",
-            maxWidth: "120px",
+            minWidth: "100px",
+            borderRadius: "16px",
+            padding: "8px 20px",
+            fontSize: "17px",
+            fontWeight: "500",
+            textAlign: "center",
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap"
@@ -110,8 +126,8 @@ function Home({ onStart }) {
         </a>
       </div>
 
-      <div className="home-content">
-        <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" />
+      <div className="home-content" style={{ width: "100%", maxWidth: "700px", textAlign: "center" }}>
+        <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" style={{ maxWidth: "220px", width: "100%" }} />
         <h1>ORCA Swimming Academy</h1>
         <p>
           Welcome to ORCA Academy 🏊‍♂️ <br />
