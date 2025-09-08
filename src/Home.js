@@ -17,7 +17,7 @@ function Home({ onStart }) {
     >
       <img
         src="ORCA2.png"
-        alt="ORCA Logo"
+        alt="ORCA2 Logo"
         style={{
           width: "150px",
           marginBottom: "20px",
