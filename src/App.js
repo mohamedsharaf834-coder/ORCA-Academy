@@ -7,17 +7,7 @@ import "./App.css";
 // ----- Home Page -----
 function Home({ onStart }) {
   return (
-    <div
-      className="home-container"
-      style={{
-        minHeight: "100vh",
-        boxSizing: "border-box",
-        overflowX: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div className="home-container" style={{ minHeight: "100vh", boxSizing: "border-box", overflowX: "hidden", background: "linear-gradient(to bottom, #e0f7fa, #ffffff)" }}>
       {/* Topbar ثابت فوق */}
       <div
         className="topbar"
@@ -31,14 +21,15 @@ function Home({ onStart }) {
           gap: "24px",
           borderBottomLeftRadius: "12px",
           borderBottomRightRadius: "12px",
-          position: "fixed", // ثابت فوق
+          position: "fixed",
           top: 0,
           left: 0,
           zIndex: 100,
+          boxShadow: "0 2px 8px #ccc"
         }}
       >
         <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.08)",
+          background: "rgba(255,255,255,0.10)",
           color: "#fff",
           border: "none",
           borderRadius: "20px",
@@ -46,11 +37,10 @@ function Home({ onStart }) {
           fontSize: "18px",
           fontWeight: "500",
           cursor: "pointer",
-          transition: "background 0.2s",
-        }}
-        >About</button>
+          margin: "0 8px"
+        }}>About</button>
         <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.08)",
+          background: "rgba(255,255,255,0.10)",
           color: "#fff",
           border: "none",
           borderRadius: "20px",
@@ -58,11 +48,10 @@ function Home({ onStart }) {
           fontSize: "18px",
           fontWeight: "500",
           cursor: "pointer",
-          transition: "background 0.2s",
-        }}
-        >Courses</button>
+          margin: "0 8px"
+        }}>Courses</button>
         <button className="nav-btn" style={{
-          background: "rgba(255,255,255,0.08)",
+          background: "rgba(255,255,255,0.10)",
           color: "#fff",
           border: "none",
           borderRadius: "20px",
@@ -70,22 +59,20 @@ function Home({ onStart }) {
           fontSize: "18px",
           fontWeight: "500",
           cursor: "pointer",
-          transition: "background 0.2s",
-        }}
-        >Contact</button>
+          margin: "0 8px"
+        }}>Contact</button>
       </div>
 
       {/* محتوى الصفحة */}
-      <div style={{ marginTop: "70px", width: "100%" }}>
-        <div className="home-content" style={{ width: "100%", maxWidth: "700px", textAlign: "center", margin: "0 auto" }}>
-          <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" style={{ maxWidth: "220px", width: "100%" }} />
-          <h1>ORCA Swimming Academy</h1>
-          <p>
+      <div style={{ marginTop: "80px", width: "100%" }}>
+        <div className="home-content" style={{ width: "100%", maxWidth: "700px", textAlign: "center", margin: "0 auto", padding: "20px" }}>
+          <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" style={{ maxWidth: "220px", width: "100%", marginBottom: "20px" }} />
+          <h1 style={{ color: "#00796b", marginBottom: "10px" }}>ORCA Swimming Academy</h1>
+          <p style={{ fontSize: "20px", color: "#004d40", marginBottom: "20px" }}>
             Welcome to ORCA Academy 🏊‍♂️ <br />
-            Learn, train, and achieve excellence in swimming with our professional
-            coaches and tailored programs.
+            Learn, train, and achieve excellence in swimming with our professional coaches and tailored programs.
           </p>
-          <div style={{ marginBottom: "20px", fontWeight: "bold" }}>
+          <div style={{ marginBottom: "20px", fontWeight: "bold", color: "#00796b", fontSize: "18px" }}>
             للتواصل: 01012201021
           </div>
           <button className="get-started-btn" onClick={onStart}>
@@ -94,24 +81,25 @@ function Home({ onStart }) {
         </div>
 
         {/* صور التدريب */}
-        <div style={{ width: "100%", maxWidth: "800px", margin: "40px auto", textAlign: "center" }}>
+        <div style={{ width: "100%", maxWidth: "900px", margin: "40px auto", textAlign: "center" }}>
           <h2 style={{ marginBottom: "20px", color: "#00796b" }}>صور من التدريب</h2>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
             <img src="/training1.jpg" alt="تدريب 1" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
             <img src="/training2.jpg" alt="تدريب 2" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
             <img src="/training3.jpg" alt="تدريب 3" style={{ width: "220px", borderRadius: "12px", boxShadow: "0 2px 8px #ccc" }} />
+            {/* ممكن تزود صور تانية بنفس الشكل */}
           </div>
         </div>
 
         {/* جزء التواصل (Contact) */}
-        <div style={{ width: "100%", maxWidth: "700px", margin: "40px auto", textAlign: "center" }}>
+        <div style={{ width: "100%", maxWidth: "700px", margin: "40px auto", textAlign: "center", background: "#e0f7fa", borderRadius: "12px", padding: "20px 0", boxShadow: "0 2px 8px #ccc" }}>
           <h2 style={{ marginBottom: "20px", color: "#00796b" }}>تواصل معنا</h2>
           <a
             href="https://wa.me/201234567890"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-btn"
-            style={{ background: "#25D366", color: "#fff", margin: "0 10px", borderRadius: "16px", padding: "10px 24px", fontSize: "18px", fontWeight: "500" }}
+            style={{ background: "#25D366", color: "#fff", margin: "0 10px", borderRadius: "16px", padding: "10px 24px", fontSize: "18px", fontWeight: "500", display: "inline-block" }}
           >
             WhatsApp
           </a>
@@ -120,7 +108,7 @@ function Home({ onStart }) {
             target="_blank"
             rel="noopener noreferrer"
             className="nav-btn"
-            style={{ background: "#1877f3", color: "#fff", margin: "0 10px", borderRadius: "16px", padding: "10px 24px", fontSize: "18px", fontWeight: "500" }}
+            style={{ background: "#1877f3", color: "#fff", margin: "0 10px", borderRadius: "16px", padding: "10px 24px", fontSize: "18px", fontWeight: "500", display: "inline-block" }}
           >
             Facebook
           </a>
