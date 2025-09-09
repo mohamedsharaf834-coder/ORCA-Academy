@@ -1,6 +1,81 @@
-/* Mobile.css */
-#gallery img, #activities > div {
-  flex: 1 1 48%; /* 2 جنب بعض */
-  max-width: 48%;
-  margin-bottom: 10px;
+/* ---------- Mobile Styles ---------- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #004d40 0%, #0d2f2f 100%);
+  color: white;
+  text-align: center;
+}
+
+/* Navbar */
+.topbar {
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 0;
+}
+
+/* Logo */
+.home-logo {
+  margin-top: 100px;
+}
+
+.logo-large {
+  max-width: 120px;
+}
+
+/* Sections */
+.section {
+  margin: 20px 10px;
+  padding: 18px;
+  border-radius: 12px;
+}
+
+/* Gallery & Activities */
+#gallery, #activities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+#gallery img, 
+#activities > div {
+  flex: 1 1 45%; /* صورتين جنب بعض */
+  max-width: 45%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+#gallery img:hover,
+#activities > div:hover {
+  transform: scale(1.03);
+}
+
+/* Login Page */
+.login-container {
+  padding: 20px;
+}
+
+.login-container input,
+.login-container button {
+  width: 100%;
+  max-width: 320px;
+  margin: 8px auto;
+  border-radius: 12px;
+}
+
+/* Schedule Table */
+.schedule-container {
+  padding: 10px;
+}
+
+.schedule-container table {
+  width: 100%;
+  font-size: 12px;
+}
+
+.schedule-container th,
+.schedule-container td {
+  padding: 6px;
 }
