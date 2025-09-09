@@ -1,6 +1,40 @@
-/* Desktop.css */
-#gallery img, #activities > div {
-  flex: 1 1 260px; /* ثابتة الحجم للاب */
-  max-width: 260px;
-  min-width: 220px;
+/* Desktop.css - For Desktop Screens Only */
+
+/* Gallery & Activities Grids */
+.gallery-grid, .activities-grid {
+  display: flex;
+  flex-wrap: wrap;      /* يسمح للعنصر بالانتقال لصف ثاني لو الشاشة أصغر من اللازم */
+  justify-content: center; /* توزيع الصور في الوسط */
+  gap: 20px;           /* المسافة بين العناصر */
+}
+
+/* كل كارت/صورة */
+.gallery-grid img, .activities-grid .activity-card {
+  flex: 1 1 260px;     /* الحجم الأساسي 260px، ينمو وينكمش حسب المساحة */
+  max-width: 260px;    /* أقصى عرض */
+  min-width: 260px;    /* أقل عرض */
+  border-radius: 18px; /* حواف مدورة */
+  overflow: hidden;    /* لضمان عدم خروج أي جزء من الصورة */
+}
+
+/* نص داخل الكارت */
+.activities-grid .activity-card h3 {
+  font-size: 18px;
+  margin: 8px 0 4px;
+  color: #00796b;
+}
+
+.activities-grid .activity-card p {
+  font-size: 14px;
+  color: #004d40;
+}
+
+/* ضبط الصور الكبيرة في الهوم */
+.home-logo .logo-large {
+  max-width: 180px;
+  width: 100%;
+  box-shadow: 0 4px 24px #00332c;
+  border-radius: 50%; /* دائري */
+  background: rgba(0,77,64,0.7);
+  padding: 18px;
 }
