@@ -66,71 +66,41 @@
   padding: 18px;
 }
 
-/* ---------- Gallery & Activities ---------- */
-.gallery-grid, .activities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  align-items: start;
-  width: 100%;
-}
-
-.gallery-img, .activity-img {
-  width: 100%;
-  max-width: 220px;
-  height: 160px; /* خليهم نفس الارتفاع */
-  object-fit: cover; /* يملأ الإطار بدون تشويه */
-  border-radius: 14px;
-  box-shadow: 0 2px 8px #004d40;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery-img:hover, .activity-img:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 8px 24px #00796b;
-}
-
-/* ---------- Activity Cards ---------- */
-.activity-card {
-  width: 100%;
-  max-width: 260px;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px #004d40;
-  padding: 15px;
+/* Gallery & Activities Container */
+#gallery, #activities {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  flex-wrap: wrap; /* يسمح للعنصر بالانتقال لصف تاني لو الشاشة صغيرة */
+  justify-content: center; /* يوزع العناصر بشكل متساوي في الوسط */
+  gap: 20px; /* المسافة بين العناصر */
 }
 
-.activity-card h3 {
-  color: #00796b;
-  font-size: 20px;
+/* كل كارت/صورة */
+#gallery img, #activities > div {
+  flex: 1 1 260px; /* الحجم الأساسي 260px، ينمو وينكمش حسب المساحة */
+  max-width: 260px; /* يمنع الكارت من أن يكون أكبر من المطلوب */
+  min-width: 220px; /* يمنع الكارت من أن يكون أصغر جدًا */
+}
+
+/* نص داخل الكارت */
+#activities h3 {
+  font-size: 18px;
   margin: 8px 0 4px;
+  color: #00796b;
 }
 
-.activity-card p {
+#activities p {
+  font-size: 14px;
   color: #004d40;
-  font-size: 15px;
 }
 
-/* ---------- Responsive ---------- */
+/* Responsive للموبايل */
 @media (max-width: 600px) {
-  .gallery-grid, .activities-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
-  }
-  .gallery-img, .activity-img {
-    max-width: 90vw;
-    height: 140px;
-  }
-  .activity-card {
-    max-width: 90vw;
-    padding: 12px;
+  #gallery img, #activities > div {
+    flex: 1 1 90%; /* تقريبا 90% من عرض الشاشة */
+    max-width: 260px; 
   }
 }
+
 
 /* Sections */
 .section {
