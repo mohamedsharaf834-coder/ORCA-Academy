@@ -25,6 +25,13 @@
 
 
 /* ---------- Activities Desktop ---------- */
+.activities-section h2 {
+  text-align: center;
+  margin-bottom: 24px; /* مسافة بين العنوان والكروت */
+  font-size: 28px;
+  color: #004d40;
+}
+
 .activities-grid {
   display: flex;
   justify-content: center;
@@ -33,11 +40,11 @@
 }
 
 .activity-card {
-  flex: 1 1 220px;  /* حجم أساسي للكارت */
+  flex: 1 1 220px;
   max-width: 220px;
   min-width: 200px;
   background: rgba(0, 121, 107, 0.1);
-  border-radius: 18px; /* الحواف مدورة */
+  border-radius: 18px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   padding: 12px;
   text-align: center;
