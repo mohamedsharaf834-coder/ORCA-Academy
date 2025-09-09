@@ -5,6 +5,18 @@ import Schedule from "./Schedule";
 import "./App.css";
 
 function Home({ onStart, setPage }) {
+  const galleryImages = [
+    "/training1.JPG",
+    "/training2.JPG",
+    "/training3.JPG",
+  ];
+
+  const activities = [
+    { img: "/activity1.jpg", title: "Kids Swimming", desc: "Special programs for kids with professional trainers." },
+    { img: "/activity2.jpg", title: "Adults Swimming", desc: "Skill and fitness development for adults in a safe environment." },
+    { img: "/activity3.jpg", title: "Championships", desc: "Organizing swimming championships all year round." },
+  ];
+
   return (
     <div className="home-container">
       {/* Topbar */}
@@ -23,55 +35,46 @@ function Home({ onStart, setPage }) {
         <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large"/>
       </div>
 
-      {/* About */}
-      <div id="about" className="section about-section">
+      {/* About Section */}
+      <section id="about" className="section about-section">
         <h1>ORCA Swimming Academy</h1>
         <p>
           Welcome to ORCA Academy 🏊‍♂️<br />
           Learn, train, and achieve excellence in swimming with professional coaches and modern programs for all ages.
         </p>
         <button className="get-started-btn" onClick={onStart}>Login</button>
-      </div>
+      </section>
 
-      {/* Gallery */}
-      <div id="gallery" className="section gallery-section">
+      {/* Gallery Section */}
+      <section id="gallery" className="section">
         <h2>Training Gallery</h2>
         <div className="gallery-grid">
-          <img src="/training1.JPG" alt="Training 1" className="gallery-img" />
-          <img src="/training2.JPG" alt="Training 1" className="gallery-img" />
-          <img src="/training3.JPG" alt="Training 1" className="gallery-img" />
-
+          {galleryImages.map((img, idx) => (
+            <img key={idx} src={img} alt={`Training ${idx+1}`} className="gallery-img"/>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* Activities */}
-      <div id="activities" className="section activities-section">
+      {/* Activities Section */}
+      <section id="activities" className="section">
         <h2>Academy Activities</h2>
         <div className="activities-grid">
-          <div className="activity-card">
-            <img src="/activity1.jpg" alt="Kids Training"/>
-            <h3>Kids Swimming</h3>
-            <p>Special programs for kids with professional trainers.</p>
-          </div>
-          <div className="activity-card">
-            <img src="/activity2.jpg" alt="Adults Training"/>
-            <h3>Adults Swimming</h3>
-            <p>Skill and fitness development for adults in a safe environment.</p>
-          </div>
-          <div className="activity-card">
-            <img src="/activity3.jpg" alt="Championships"/>
-            <h3>Championships</h3>
-            <p>Organizing swimming championships all year round.</p>
-          </div>
+          {activities.map((act, idx) => (
+            <div key={idx} className="activity-card">
+              <img src={act.img} alt={act.title}/>
+              <h3>{act.title}</h3>
+              <p>{act.desc}</p>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* Contact */}
-      <div id="contact" className="section contact-section">
+      {/* Contact Section */}
+      <section id="contact" className="section contact-section">
         <h2>Contact Us</h2>
         <a href="https://wa.me/201012201021" target="_blank" rel="noopener noreferrer" className="nav-btn whatsapp-btn">WhatsApp</a>
         <a href="https://www.facebook.com/profile.php?id=61578271988798" target="_blank" rel="noopener noreferrer" className="nav-btn fb-btn">Facebook</a>
-      </div>
+      </section>
 
       <footer>
         &copy; {new Date().getFullYear()} ORCA Swimming Academy. All rights reserved.
@@ -87,8 +90,8 @@ function Login({ onLogin, setPage }) {
 
   useEffect(() => {
     fetch("/data/students.csv")
-      .then((res) => res.text())
-      .then((csvText) => {
+      .then(res => res.text())
+      .then(csvText => {
         const results = Papa.parse(csvText, { header: true });
         setStudents(results.data);
       });
@@ -96,7 +99,7 @@ function Login({ onLogin, setPage }) {
 
   const handleLogin = () => {
     const found = students.find(
-      (s) =>
+      s =>
         s?.Name?.trim().toLowerCase() === name.trim().toLowerCase() &&
         s?.["phone number"]?.trim() === phone.trim()
     );
