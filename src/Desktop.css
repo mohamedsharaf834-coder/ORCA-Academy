@@ -1,20 +1,19 @@
 /* Desktop.css - For Desktop Screens Only */
 
 /* Gallery & Activities Grids */
-.gallery-grid, .activities-grid {
+.gallery-grid {
   display: flex;
-  flex-wrap: wrap;      /* يسمح للعنصر بالانتقال لصف ثاني لو الشاشة أصغر من اللازم */
-  justify-content: center; /* توزيع الصور في الوسط */
-  gap: 20px;           /* المسافة بين العناصر */
+  justify-content: center; /* توسيط الصور */
+  gap: 20px; /* المسافة بين الصور */
+  flex-wrap: nowrap; /* نخليهم في صف واحد فقط */
 }
 
-/* كل كارت/صورة */
-.gallery-grid img, .activities-grid .activity-card {
-  flex: 1 1 260px;     /* الحجم الأساسي 260px، ينمو وينكمش حسب المساحة */
-  max-width: 260px;    /* أقصى عرض */
-  min-width: 260px;    /* أقل عرض */
-  border-radius: 18px; /* حواف مدورة */
-  overflow: hidden;    /* لضمان عدم خروج أي جزء من الصورة */
+.gallery-grid img {
+  flex: 1 1 200px; /* كل صورة تاخد حجم أساسي 200px */
+  max-width: 200px;
+  min-width: 180px;
+  border-radius: 18px; /* الحواف مدورة */
+  overflow: hidden;
 }
 
 /* نص داخل الكارت */
