@@ -215,34 +215,73 @@ a.nav-btn {
 
 /* Responsive for mobile */
 @media (max-width: 600px) {
+  .home-container {
+    padding: 0 2vw !important;
+    min-height: 100vh;
+  }
   .topbar {
     flex-wrap: wrap;
-    gap: 12px !important;
+    gap: 10px !important;
     padding: 10px 0 !important;
+    font-size: 15px !important;
+    position: static !important;
+    border-radius: 0 !important;
+  }
+  .nav-btn, .get-started-btn, .login-btn {
     font-size: 16px !important;
-  }
-  #gallery div,
-  #activities div {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-  #gallery img,
-  #activities img {
-    width: 90vw !important;
-    max-width: 320px !important;
-  }
-  .home-container {
-    padding: 0 4vw !important;
-  }
-  #about,
-  #gallery,
-  #activities,
-  #contact {
-    max-width: 98vw !important;
-    padding: 16px 2vw !important;
+    padding: 10px 18px !important;
+    border-radius: 14px !important;
+    margin: 4px 0 !important;
   }
   .home-content img.logo-large {
+    width: 120px !important;
     margin-top: 60px !important;
+    margin-bottom: 16px !important;
+  }
+  .home-content h1 {
+    font-size: 28px !important;
+    margin-bottom: 8px !important;
+  }
+  .home-content p {
+    font-size: 16px !important;
+    margin-bottom: 18px !important;
+    max-width: 98vw !important;
+  }
+  #about, #gallery, #activities, #contact, .login-box, .schedule-table {
+    max-width: 98vw !important;
+    padding: 12px 2vw !important;
+    margin: 12px auto !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px #004d40 !important;
+  }
+  #gallery div, #activities div {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+  #gallery img, #activities img {
+    width: 90vw !important;
+    max-width: 260px !important;
+    margin: 0 auto !important;
+  }
+  .login-box img.logo-small {
+    width: 60px !important;
+    margin-bottom: 12px !important;
+  }
+  .login-input {
+    width: 90vw !important;
+    max-width: 260px !important;
+    font-size: 15px !important;
+    padding: 10px !important;
+  }
+  .schedule-table th, .schedule-table td {
+    padding: 10px 6px !important;
+    font-size: 15px !important;
+  }
+  footer {
+    font-size: 13px !important;
+    padding: 10px 0 !important;
+    border-radius: 8px !important;
   }
 }
 
