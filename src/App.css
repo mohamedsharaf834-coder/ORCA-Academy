@@ -52,6 +52,7 @@
   font-weight: bold;
 }
 
+/* ---------- Logo ---------- */
 .home-logo {
   margin-top: 140px;
   margin-bottom: 30px;
@@ -60,7 +61,8 @@
 .logo-large {
   max-width: 180px;
   width: 100%;
-  box-shadow: 0 4px 24px #00332c;
+  height: auto;
+  box-shadow: 0 4px 24px rgba(0, 51, 35, 0.5);
   border-radius: 50%;
   background: rgba(0,77,64,0.7);
   padding: 18px;
@@ -72,7 +74,7 @@
   margin: 40px auto;
   padding: 28px;
   border-radius: 18px;
-  box-shadow: 0 2px 12px #00251a;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
   background: rgba(0,121,107,0.10);
 }
 
@@ -91,9 +93,18 @@
 }
 
 #gallery img, #activities > div {
-  flex: 1 1 260px;
+  flex: 1 1 260px; /* ثابت للاب توب */
   max-width: 260px;
   min-width: 220px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#gallery img:hover, #activities > div:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* نص داخل الكارت */
@@ -106,6 +117,8 @@
 #activities p {
   font-size: 14px;
   color: #004d40;
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
 
 /* ---------- Contact Buttons ---------- */
@@ -124,16 +137,23 @@
 }
 
 /* ---------- Responsive ---------- */
+/* Tablet & Medium screens */
 @media (max-width: 900px) {
   #gallery img, #activities > div {
-    flex: 1 1 45%; /* على التابلت أو الشاشات المتوسطة: 2 جنب بعض */
+    flex: 1 1 45%;
     max-width: 45%;
   }
 }
 
+/* Mobile screens */
 @media (max-width: 600px) {
   #gallery img, #activities > div {
-    flex: 1 1 48%; /* على الموبايل: 2 جنب بعض، التالتة تحت */
+    flex: 1 1 48%;
     max-width: 48%;
+    margin-bottom: 12px;
+  }
+  /* لعنصر فردي من كل زوج لتوازن الفراغ */
+  #gallery img:nth-child(odd), #activities > div:nth-child(odd) {
+    margin-right: 4%;
   }
 }
