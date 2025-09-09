@@ -67,11 +67,17 @@
 }
 
 /* Gallery */
-.gallery-grid, .activities-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.gallery-img {
+  width: 100%;       /* يخلي الصورة تكبر وتصغر حسب الشاشة */
+  max-width: 220px;  /* الحد الأقصى للحجم على الشاشة الكبيرة */
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #004d40;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-img:hover {
+  transform: translateY(-18px) scale(1.07);
+  box-shadow: 0 8px 24px #00796b;
 }
 
 .activity-card {

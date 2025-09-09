@@ -37,9 +37,10 @@ function Home({ onStart, setPage }) {
       <div id="gallery" className="section gallery-section">
         <h2>Training Gallery</h2>
         <div className="gallery-grid">
-          <img src="/training1.JPG" alt="Training 1"/>
-          <img src="/training2.JPG" alt="Training 2"/>
-          <img src="/training3.JPG" alt="Training 3"/>
+          <img src="/training1.JPG" alt="Training 1" className="gallery-img" />
+          <img src="/training2.JPG" alt="Training 1" className="gallery-img" />
+          <img src="/training3.JPG" alt="Training 1" className="gallery-img" />
+
         </div>
       </div>
 
