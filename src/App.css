@@ -66,19 +66,34 @@
   padding: 18px;
 }
 
-/* Gallery & Activities Container */
-#gallery, #activities {
-  display: flex;
-  flex-wrap: wrap; /* يسمح للعنصر بالانتقال لصف تاني لو الشاشة صغيرة */
-  justify-content: center; /* يوزع العناصر بشكل متساوي في الوسط */
-  gap: 20px; /* المسافة بين العناصر */
+/* ---------- Sections ---------- */
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #00251a;
+  background: rgba(0,121,107,0.10);
 }
 
-/* كل كارت/صورة */
+/* About Section */
+.about-section {
+  text-align: center;
+  background: rgba(0,121,107,0.15);
+}
+
+/* ---------- Gallery & Activities ---------- */
+#gallery, #activities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
 #gallery img, #activities > div {
-  flex: 1 1 260px; /* الحجم الأساسي 260px، ينمو وينكمش حسب المساحة */
-  max-width: 260px; /* يمنع الكارت من أن يكون أكبر من المطلوب */
-  min-width: 220px; /* يمنع الكارت من أن يكون أصغر جدًا */
+  flex: 1 1 260px;
+  max-width: 260px;
+  min-width: 220px;
 }
 
 /* نص داخل الكارت */
@@ -93,36 +108,11 @@
   color: #004d40;
 }
 
-/* Responsive للموبايل */
-@media (max-width: 600px) {
-  #gallery img, #activities > div {
-    flex: 1 1 90%; /* تقريبا 90% من عرض الشاشة */
-    max-width: 260px; 
-  }
-}
-
-
-/* Sections */
-.section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 28px;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px #00251a;
-  background: rgba(0,121,107,0.10);
-}
-
-/* About */
-.about-section {
-  text-align: center;
-  background: rgba(0,121,107,0.15);
-}
-
-/* Contact Buttons */
+/* ---------- Contact Buttons ---------- */
 .whatsapp-btn { background: #25D366; }
 .fb-btn { background: #1877f3; }
 
-/* Login Page */
+/* ---------- Login Page ---------- */
 .login-container {
   display: flex;
   flex-direction: column;
@@ -131,4 +121,19 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
   font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  #gallery img, #activities > div {
+    flex: 1 1 45%; /* على التابلت أو الشاشات المتوسطة: 2 جنب بعض */
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  #gallery img, #activities > div {
+    flex: 1 1 48%; /* على الموبايل: 2 جنب بعض، التالتة تحت */
+    max-width: 48%;
+  }
 }
