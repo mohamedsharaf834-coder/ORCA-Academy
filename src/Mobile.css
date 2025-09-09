@@ -63,23 +63,22 @@ body {
   text-align: center;
 }
 
-/* ---------- Gallery ---------- */
+/* Mobile Gallery */
 .gallery-grid {
   display: flex;
+  gap: 10px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 12px;
+  -webkit-overflow-scrolling: touch;
   padding: 10px;
 }
+
 .gallery-grid img {
-  flex: 0 0 75%;               /* كل صورة تاخد 75% من عرض الشاشة */
-  border-radius: 14px;
-  scroll-snap-align: center;
-  transition: transform 0.3s ease;
+  flex: 0 0 70%; /* حجم الصورة بالنسبة للعرض */
+  border-radius: 12px;
+  scroll-snap-align: start;
 }
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
+
 
 /* ---------- Activities ---------- */
 .activities-grid {
