@@ -1,20 +1,28 @@
 /* Desktop.css - For Desktop Screens Only */
 
 /* Gallery & Activities Grids */
+/* ---------- Gallery Desktop ---------- */
 .gallery-grid {
   display: flex;
-  justify-content: center; /* توسيط الصور */
-  gap: 20px; /* المسافة بين الصور */
-  flex-wrap: nowrap; /* نخليهم في صف واحد فقط */
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap; /* الصور جنب بعض */
 }
 
 .gallery-grid img {
-  flex: 1 1 200px; /* كل صورة تاخد حجم أساسي 200px */
+  flex: 1 1 200px;
   max-width: 200px;
   min-width: 180px;
-  border-radius: 18px; /* الحواف مدورة */
+  border-radius: 18px;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
 
 /* نص داخل الكارت */
 .activities-grid .activity-card h3 {
