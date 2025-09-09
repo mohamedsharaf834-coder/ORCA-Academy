@@ -79,52 +79,71 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(to bottom, #e0f7fa, #ffffff);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.login-container img.logo-small {
-  width: 120px;
-  margin-bottom: 25px;
+.login-box {
+  background: linear-gradient(135deg, #e0f7fa 60%, #b2dfdb 100%);
+  border: 2px solid #009688;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 121, 107, 0.18);
+  padding: 40px 32px 32px 32px;
+  min-width: 320px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s;
+}
+
+.login-box img.logo-small {
+  width: 90px;
+  margin-bottom: 18px;
   border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
 }
 
-.login-container h1 {
-  margin-bottom: 25px;
+.login-box h1 {
+  margin-bottom: 18px;
   color: #00796b;
-  font-size: 28px;
+  font-size: 26px;
+  letter-spacing: 1px;
 }
 
 .login-input {
   padding: 12px;
-  margin-bottom: 15px;
-  width: 280px;
+  margin-bottom: 18px;
+  width: 240px;
   border-radius: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #b2dfdb;
   font-size: 16px;
   outline: none;
-  transition: 0.3s;
+  transition: border-color 0.3s;
+  background: #f7fafc;
 }
+
 .login-input:focus {
-  border-color: #00796b;
+  border-color: #009688;
+  background: #e0f7fa;
 }
 
 .login-btn {
-  padding: 12px 25px;
-  background-color: #00796b;
+  padding: 12px 32px;
+  background-color: #009688;
   color: white;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-  transition: 0.3s;
+  box-shadow: 0 2px 8px #b2dfdb;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 .login-btn:hover {
-  background-color: #004d40;
+  background-color: #00796b;
+  box-shadow: 0 4px 16px #009688;
 }
 
 /* ---------- Gallery ---------- */
@@ -148,6 +167,15 @@ a.nav-btn {
   font-size: 18px;
   font-weight: 500;
   display: inline-block;
+}
+
+/* ---------- Fade In Animation ---------- */
+.fade-in {
+  animation: fadeIn 0.7s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 /* Responsive for mobile */
@@ -181,4 +209,14 @@ a.nav-btn {
   .home-content img.logo-large {
     margin-top: 60px !important;
   }
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  color: #00796b;
+  margin-bottom: 12px;
+  font-size: 15px;
 }

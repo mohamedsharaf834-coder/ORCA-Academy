@@ -256,7 +256,7 @@ function Home({ onStart, setPage }) {
 }
 
 // ----- Login Page -----
-function Login({ onLogin }) {
+function Login({ onLogin, setPage }) {
   const [students, setStudents] = useState([]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -282,23 +282,43 @@ function Login({ onLogin }) {
 
   return (
     <div className="login-container">
-      <img src="/ORCA2.png" alt="ORCA Logo" className="logo-small" />
-      <h1>LOGIN</h1>
-      <input
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
-        className="login-input"
-      />
-      <input
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        placeholder="Phone number"
-        className="login-input"
-      />
-      <button onClick={handleLogin} className="login-btn">
-        Login
-      </button>
+      <div className="login-box fade-in">
+        <button
+          className="nav-btn"
+          style={{
+            background: "#ffcc00",
+            color: "#004d40",
+            borderRadius: "12px",
+            padding: "8px 24px",
+            fontWeight: "bold",
+            border: "none",
+            fontSize: "16px",
+            cursor: "pointer",
+            marginBottom: "18px",
+            alignSelf: "flex-start"
+          }}
+          onClick={() => setPage("home")}
+        >
+          ← Back to Home
+        </button>
+        <img src="/ORCA2.png" alt="Logo" className="logo-small" />
+        <h1>Member Login</h1>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+          className="login-input"
+        />
+        <input
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Phone number"
+          className="login-input"
+        />
+        <button onClick={handleLogin} className="login-btn">
+          Login
+        </button>
+      </div>
     </div>
   );
 }
@@ -316,6 +336,7 @@ function App() {
           setStudent(s);
           setPage("schedule");
         }}
+        setPage={setPage}
       />
     );
   return <Home onStart={() => setPage("login")} setPage={setPage} />;
