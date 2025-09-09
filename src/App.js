@@ -84,6 +84,24 @@ function Home({ onStart }) {
           background: "rgba(255,255,255,0.08)",
           transition: "background 0.2s",
         }}>Contact</a>
+        <button
+          className="nav-btn"
+          style={{
+            background: "#009688",
+            color: "#fff",
+            borderRadius: "24px",
+            padding: "8px 28px",
+            fontWeight: "bold",
+            border: "none",
+            fontSize: "18px",
+            cursor: "pointer",
+            marginLeft: "12px"
+          }}
+          title="For registered members only"
+          onClick={() => setPage("login")}
+        >
+          My Classes (Members)
+        </button>
       </div>
 
       {/* Logo Centered */}
