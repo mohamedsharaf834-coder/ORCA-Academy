@@ -301,7 +301,7 @@ function Login({ onLogin, setPage }) {
         >
           ← Back to Home
         </button>
-        <img src="/ORCA2.png" alt="Logo" className="logo-small" />
+        <img src="/ORCA.png" alt="Logo" className="logo-small" />
         <h1>Member Login</h1>
         <input
           value={name}
