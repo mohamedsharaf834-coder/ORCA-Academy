@@ -1,0 +1,6 @@
+/* Mobile.css */
+#gallery img, #activities > div {
+  flex: 1 1 48%; /* 2 جنب بعض */
+  max-width: 48%;
+  margin-bottom: 10px;
+}

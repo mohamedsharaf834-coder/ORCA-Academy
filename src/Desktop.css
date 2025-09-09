@@ -1,0 +1,6 @@
+/* Desktop.css */
+#gallery img, #activities > div {
+  flex: 1 1 260px; /* ثابتة الحجم للاب */
+  max-width: 260px;
+  min-width: 220px;
+}
