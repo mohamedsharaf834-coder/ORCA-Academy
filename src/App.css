@@ -1,79 +1,125 @@
 /* ---------- Home ---------- */
 .home-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #004d40, #00796b);
-  color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
   text-align: center;
-  padding: 20px;
-  position: relative;
+  background: linear-gradient(135deg, #004d40 0%, #0d2f2f 100%);
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 0 20px;
 }
 
-.navbar {
-  position: absolute;
+.topbar {
+  width: 100%;
+  padding: 16px 0;
+  background: rgba(0, 121, 107, 0.95);
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px 40px;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
+  z-index: 100;
+  box-shadow: 0 2px 12px #00251a;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  backdrop-filter: blur(3px);
+  flex-wrap: wrap;
 }
 
 .nav-btn {
-  padding: 10px 20px;
-  background-color: #ffcc00;
-  color: #004d40;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 19px;
+  letter-spacing: 1px;
+  padding: 8px 24px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.08);
+  transition: background 0.2s;
 }
+
 .nav-btn:hover {
-  background-color: #e6b800;
+  background: rgba(255,255,255,0.18);
 }
 
-.home-content img.logo-large {
-  width: 200px;
-  margin-bottom: 20px;
+.member-btn {
+  background: #009688;
+  font-weight: bold;
+}
+
+.home-logo {
+  margin-top: 140px;
+  margin-bottom: 30px;
+}
+
+.logo-large {
+  max-width: 180px;
+  width: 100%;
+  box-shadow: 0 4px 24px #00332c;
   border-radius: 50%;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
-  margin-top: 200px; /* هنا المسافة فوق اللوجو */
+  background: rgba(0,77,64,0.7);
+  padding: 18px;
 }
 
-.home-content h1 {
-  font-size: 48px;
+/* Gallery */
+.gallery-grid, .activities-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.activity-card {
+  width: 260px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #004d40;
+  padding: 15px;
+  text-align: center;
+}
+
+.activity-card img {
+  width: 100%;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
 
-.home-content p {
+.activity-card h3 {
+  color: #00796b;
   font-size: 20px;
-  margin-bottom: 30px;
-  max-width: 600px;
 }
 
-.get-started-btn {
-  padding: 15px 40px;
-  background-color: #ffcc00;
+.activity-card p {
   color: #004d40;
-  border: none;
-  border-radius: 12px;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.get-started-btn:hover {
-  background-color: #e6b800;
+  font-size: 15px;
 }
 
-/* ---------- Login ---------- */
+/* Sections */
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #00251a;
+  background: rgba(0,121,107,0.10);
+}
+
+/* About */
+.about-section {
+  text-align: center;
+  background: rgba(0,121,107,0.15);
+}
+
+/* Contact Buttons */
+.whatsapp-btn { background: #25D366; }
+.fb-btn { background: #1877f3; }
+
+/* Login Page */
 .login-container {
   display: flex;
   flex-direction: column;
@@ -82,246 +128,4 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
   font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.login-box {
-  background: linear-gradient(135deg, #e0f7fa 60%, #b2dfdb 100%);
-  border: 2px solid #009688;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0, 121, 107, 0.18);
-  padding: 40px 32px 32px 32px;
-  min-width: 320px;
-  max-width: 95vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeIn 0.8s;
-}
-
-.login-box img.logo-small {
-  width: 90px;
-  margin-bottom: 18px;
-  border-radius: 50%;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
-}
-
-.login-box h1 {
-  margin-bottom: 18px;
-  color: #00796b;
-  font-size: 26px;
-  letter-spacing: 1px;
-}
-
-.login-input {
-  padding: 12px;
-  margin-bottom: 18px;
-  width: 240px;
-  border-radius: 12px;
-  border: 1px solid #b2dfdb;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s;
-  background: #f7fafc;
-}
-
-.login-input:focus {
-  border-color: #009688;
-  background: #e0f7fa;
-}
-
-.login-btn {
-  padding: 12px 32px;
-  background-color: #009688;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 2px 8px #b2dfdb;
-  transition: background 0.3s, box-shadow 0.3s;
-}
-.login-btn:hover {
-  background-color: #00796b;
-  box-shadow: 0 4px 16px #009688;
-}
-
-/* ---------- Gallery ---------- */
-#gallery img {
-  transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
-  will-change: transform;
-}
-
-#gallery img:hover {
-  transform: translateY(-18px) scale(1.07);
-  box-shadow: 0 8px 24px #00796b;
-}
-
-/* ---------- WhatsApp Button ---------- */
-a.nav-btn {
-  background: #25D366;
-  color: #fff;
-  margin: 0 10px;
-  border-radius: 16px;
-  padding: 10px 24px;
-  font-size: 18px;
-  font-weight: 500;
-  display: inline-block;
-}
-
-/* ---------- Fade In Animation ---------- */
-.fade-in {
-  animation: fadeIn 0.7s ease;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-/* ---------- Schedule Table ---------- */
-.schedule-table {
-  width: 100%;
-  max-width: 700px;
-  margin: 30px auto;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px #004d40;
-  overflow: hidden;
-}
-
-.schedule-table th, .schedule-table td {
-  padding: 16px 12px;
-  text-align: center;
-  font-size: 17px;
-  border-bottom: 1px solid #e0f7fa;
-}
-
-.schedule-table th {
-  background: #009688;
-  color: #fff;
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
-.schedule-table tr:last-child td {
-  border-bottom: none;
-}
-
-.schedule-table tr:hover td {
-  background: #e0f7fa;
-  transition: background 0.2s;
-}
-
-/* Responsive for mobile */
-@media (max-width: 600px) {
-  .home-container {
-    padding: 0 2vw !important;
-    min-height: 100vh;
-  }
-  .topbar {
-    position: static !important;
-    margin-bottom: 0 !important;
-    padding: 10px 0 !important;
-  }
-  .nav-btn, .get-started-btn, .login-btn {
-    font-size: 16px !important;
-    padding: 10px 18px !important;
-    border-radius: 14px !important;
-    margin: 4px 0 !important;
-  }
-  .home-content img.logo-large {
-    margin-top: 60px !important;
-    margin-bottom: 16px !important;
-  }
-  .home-content h1 {
-    font-size: 28px !important;
-    margin-bottom: 8px !important;
-  }
-  .home-content p {
-    font-size: 16px !important;
-    margin-bottom: 18px !important;
-    max-width: 98vw !important;
-  }
-  #about, #gallery, #activities, #contact, .login-box, .schedule-table {
-    max-width: 98vw !important;
-    padding: 12px 2vw !important;
-    margin: 12px auto !important;
-    border-radius: 12px !important;
-    box-shadow: 0 2px 8px #004d40 !important;
-  }
-  #gallery div, #activities div {
-    flex-direction: column !important;
-    gap: 12px !important;
-    align-items: center !important;
-  }
-  #gallery img, #activities img {
-    width: 90vw !important;
-    max-width: 260px !important;
-    margin: 0 auto !important;
-  }
-  .login-box img.logo-small {
-    width: 60px !important;
-    margin-bottom: 12px !important;
-  }
-  .login-input {
-    width: 90vw !important;
-    max-width: 260px !important;
-    font-size: 15px !important;
-    padding: 10px !important;
-  }
-  .schedule-table th, .schedule-table td {
-    padding: 10px 6px !important;
-    font-size: 15px !important;
-  }
-  footer {
-    font-size: 13px !important;
-    padding: 10px 0 !important;
-    border-radius: 8px !important;
-  }
-}
-
-body {
-  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-p {
-  color: #00796b;
-  margin-bottom: 12px;
-  font-size: 15px;
-}
-
-/* جدول المواعيد */
-.schedule-table {
-  width: 100%;
-  max-width: 700px;
-  margin: 30px auto;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px #004d40;
-  overflow: hidden;
-}
-
-.schedule-table th, .schedule-table td {
-  padding: 16px 12px;
-  text-align: center;
-  font-size: 17px;
-  border-bottom: 1px solid #e0f7fa;
-}
-
-.schedule-table th {
-  background: #009688;
-  color: #fff;
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
-.schedule-table tr:last-child td {
-  border-bottom: none;
-}
-
-.schedule-table tr:hover td {
-  background: #e0f7fa;
-  transition: background 0.2s;
 }
