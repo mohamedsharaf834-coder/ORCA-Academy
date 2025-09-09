@@ -220,12 +220,9 @@ a.nav-btn {
     min-height: 100vh;
   }
   .topbar {
-    flex-wrap: wrap;
-    gap: 10px !important;
-    padding: 10px 0 !important;
-    font-size: 15px !important;
     position: static !important;
-    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 10px 0 !important;
   }
   .nav-btn, .get-started-btn, .login-btn {
     font-size: 16px !important;
@@ -234,7 +231,6 @@ a.nav-btn {
     margin: 4px 0 !important;
   }
   .home-content img.logo-large {
-    width: 120px !important;
     margin-top: 60px !important;
     margin-bottom: 16px !important;
   }
