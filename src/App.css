@@ -178,6 +178,41 @@ a.nav-btn {
   to { opacity: 1; transform: translateY(0);}
 }
 
+/* ---------- Schedule Table ---------- */
+.schedule-table {
+  width: 100%;
+  max-width: 700px;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #004d40;
+  overflow: hidden;
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 17px;
+  border-bottom: 1px solid #e0f7fa;
+}
+
+.schedule-table th {
+  background: #009688;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.schedule-table tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-table tr:hover td {
+  background: #e0f7fa;
+  transition: background 0.2s;
+}
+
 /* Responsive for mobile */
 @media (max-width: 600px) {
   .topbar {
@@ -219,4 +254,39 @@ p {
   color: #00796b;
   margin-bottom: 12px;
   font-size: 15px;
+}
+
+/* جدول المواعيد */
+.schedule-table {
+  width: 100%;
+  max-width: 700px;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #004d40;
+  overflow: hidden;
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 17px;
+  border-bottom: 1px solid #e0f7fa;
+}
+
+.schedule-table th {
+  background: #009688;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.schedule-table tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-table tr:hover td {
+  background: #e0f7fa;
+  transition: background 0.2s;
 }

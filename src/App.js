@@ -297,7 +297,10 @@ function Login({ onLogin, setPage }) {
             marginBottom: "18px",
             alignSelf: "flex-start"
           }}
-          onClick={() => setPage("home")}
+          onClick={() => {
+            window.location.hash = ""; // يمسح الهاش من العنوان
+            setPage("home");
+          }}
         >
           ← Back to Home
         </button>
