@@ -66,43 +66,70 @@
   padding: 18px;
 }
 
-/* Gallery */
-.gallery-img {
-  width: 100%;       /* يخلي الصورة تكبر وتصغر حسب الشاشة */
-  max-width: 220px;  /* الحد الأقصى للحجم على الشاشة الكبيرة */
+/* ---------- Gallery & Activities ---------- */
+.gallery-grid, .activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+}
+
+.gallery-img, .activity-img {
+  width: 100%;
+  max-width: 220px;
+  height: 160px; /* خليهم نفس الارتفاع */
+  object-fit: cover; /* يملأ الإطار بدون تشويه */
   border-radius: 14px;
   box-shadow: 0 2px 8px #004d40;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.gallery-img:hover {
-  transform: translateY(-18px) scale(1.07);
+.gallery-img:hover, .activity-img:hover {
+  transform: translateY(-10px) scale(1.05);
   box-shadow: 0 8px 24px #00796b;
 }
 
+/* ---------- Activity Cards ---------- */
 .activity-card {
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 2px 8px #004d40;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-}
-
-.activity-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .activity-card h3 {
   color: #00796b;
   font-size: 20px;
+  margin: 8px 0 4px;
 }
 
 .activity-card p {
   color: #004d40;
   font-size: 15px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .gallery-grid, .activities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .gallery-img, .activity-img {
+    max-width: 90vw;
+    height: 140px;
+  }
+  .activity-card {
+    max-width: 90vw;
+    padding: 12px;
+  }
 }
 
 /* Sections */
