@@ -5,7 +5,7 @@ import Schedule from "./Schedule";
 import "./App.css";
 
 // ----- Home Page -----
-function Home({ onStart }) {
+function Home({ onStart, setPage }) {
   return (
     <div
       className="home-container"
@@ -318,7 +318,7 @@ function App() {
         }}
       />
     );
-  return <Home onStart={() => setPage("login")} />;
+  return <Home onStart={() => setPage("login")} setPage={setPage} />;
 }
 
 export default App;
