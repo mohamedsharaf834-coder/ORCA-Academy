@@ -1,30 +1,21 @@
-/* App.css - العام لكل الأجهزة */
+/* ========== الأساسيات العامة لكل الأجهزة ========== */
 body, html {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
-}
-
-.home-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  text-align: center;
   background: linear-gradient(135deg, #004d40 0%, #0d2f2f 100%);
-  padding: 0 20px;
+  color: white;
   overflow-x: hidden;
 }
 
+/* ========== العناصر المشتركة ========== */
 .topbar {
-  width: 100%;
-  padding: 16px 0;
-  background: rgba(0, 121, 107, 0.95);
   display: flex;
   justify-content: center;
   gap: 16px;
+  padding: 16px 0;
+  background: rgba(0, 121, 107, 0.95);
   position: fixed;
   top: 0;
   left: 0;
@@ -47,58 +38,218 @@ body, html {
   background: rgba(255,255,255,0.08);
   transition: background 0.2s;
 }
+.nav-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+.member-btn {
+  background: #009688;
+  font-weight: bold;
+}
 
-.member-btn { background: #009688; font-weight: bold; }
+/* ========== الشعار والصفحة الرئيسية ========== */
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
 
-.home-logo { margin-top: 140px; margin-bottom: 30px; }
-
+.home-logo {
+  margin-top: 140px;
+  margin-bottom: 30px;
+}
 .logo-large {
   max-width: 180px;
   width: 100%;
   box-shadow: 0 4px 24px #00332c;
-  border-radius: 50%; /* مدورة */
+  border-radius: 50%;
   background: rgba(0,77,64,0.7);
   padding: 18px;
 }
 
-/* Sections */
+/* ========== الأقسام ========== */
 .section {
   max-width: 900px;
   margin: 40px auto;
   padding: 28px;
-  border-radius: 18px; /* مدورة */
+  border-radius: 18px;
   box-shadow: 0 2px 12px #00251a;
   background: rgba(0,121,107,0.10);
 }
-
-.about-section { text-align: center; background: rgba(0,121,107,0.15); }
-
-/* Gallery & Activities - شبكة مرنة */
-#gallery, #activities {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+.about-section {
+  background: rgba(0,121,107,0.15);
 }
 
-#gallery img, #activities > div {
-  border-radius: 18px; /* مدورة */
+/* ========== الجاليري والأنشطة ========== */
+.gallery-grid, .activities-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.gallery-img, .activity-card {
+  border-radius: 18px;
   flex: 1 1 260px;
   max-width: 260px;
   min-width: 220px;
 }
+.activity-card {
+  background: rgba(0, 121, 107, 0.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.activity-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.activity-card img {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 8px;
+}
 
-#activities h3 { font-size: 18px; margin: 8px 0 4px; color: #00796b; }
-#activities p { font-size: 14px; color: #004d40; }
-
-.whatsapp-btn { background: #25D366; }
-.fb-btn { background: #1877f3; }
-
+/* ========== تسجيل الدخول ========== */
 .login-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
+}
+.login-box {
+  background: rgba(0, 121, 107, 0.1);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+}
+.logo-small {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  background: rgba(0,77,64,0.7);
+  padding: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.login-input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid #009688;
+  font-size: 16px;
+}
+.login-btn {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 12px;
+  border: none;
+  background: #009688;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.login-btn:hover {
+  background: #00796b;
+  transform: translateY(-2px);
+}
+
+/* ========== الجدول ========== */
+.schedule-container {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #e0f7fa;
+}
+.schedule-logo {
+  width: 150px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+.schedule-header {
+  text-align: center;
+  color: #004d40;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.schedule-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.schedule-table th {
+  background-color: #b2ebf2;
+  padding: 10px;
+  border: 1px solid #ddd;
+  color: #00796b;
+  text-align: center;
+}
+.schedule-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+.schedule-table td:hover {
+  background-color: #80deea;
+}
+
+/* ========== Media Queries ========== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .topbar {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  .activity-card {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .topbar {
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scrollbar-width: none;
+  }
+  .topbar::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery-grid {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+  }
+  .gallery-grid img {
+    flex: 0 0 70%;
+    scroll-snap-align: start;
+  }
+  .activity-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .login-box {
+    width: 90%;
+    padding: 20px;
+  }
+  .logo-small {
+    width: 100px;
+    padding: 10px;
+  }
 }

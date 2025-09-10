@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import Schedule from "./Schedule";
 import "./App.css";
-import "./Desktop.css";
-import "./Tablet.css";
-import "./Mobile.css";
-
 
 function Home({ onStart, setPage }) {
   const galleryImages = [

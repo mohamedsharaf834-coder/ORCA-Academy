@@ -1,5 +1,0 @@
-/* Tablet.css */
-#gallery img, #activities > div {
-  flex: 1 1 45%; /* 2 صور جنب بعض */
-  max-width: 45%;
-}
