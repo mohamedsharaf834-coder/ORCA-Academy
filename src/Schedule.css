@@ -1,0 +1,77 @@
+.schedule-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #e6f7ff, #ffffff);
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.schedule-logo {
+  height: 50px;
+}
+
+.logout-btn {
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.logout-btn:hover {
+  background: #023e8a;
+}
+
+.student-info {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.student-info h2 {
+  margin-bottom: 10px;
+  color: #0077b6;
+}
+
+.sessions-title {
+  margin: 15px 0;
+  color: #333;
+}
+
+.sessions-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.session-card {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .sessions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sessions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,59 +1,55 @@
 import React from "react";
+import "./Schedule.css";
 
-
-const Schedule = ({ student }) => {
+const Schedule = ({ student, setPage }) => {
   const formatSession = (value) => {
-    if (!value) return "";
-    return value.toString().trim().toUpperCase() === "TRUE" ? "✅" : "";
+    if (!value) return "❌";
+    return value.toString().trim().toUpperCase() === "TRUE" ? "✅" : "❌";
   };
+
+  const sessions = [
+    "Session 1",
+    "Session 2",
+    "Session 3",
+    "Session 4",
+    "Assessment",
+    "Session 5",
+    "Session 6",
+    "Session 7",
+    "Session 8",
+  ];
 
   return (
     <div className="schedule-container">
-      <img
-        src="/ORCA.png"
-        alt="ORCA Swimming Academy"
-        className="schedule-logo"
-      />
-      <h2 className="schedule-header">{student.Name}'s sessions</h2>
+      {/* Header */}
+      <div className="schedule-header">
+        <img src="/ORCA.png" alt="ORCA Logo" className="schedule-logo" />
+        <button className="logout-btn" onClick={() => setPage("home")}>
+          Logout
+        </button>
+      </div>
 
-      <table className="schedule-table">
-        <thead>
-          <tr>
-            {[
-              "Name","Age","Phone","Level","Captain","Day","Branch","Hours",
-              "Session 1","Session 2","Session 3","Session 4","Assessment",
-              "Session 5","Session 6","Session 7","Session 8"
-            ].map((col) => (
-              <th key={col}>{col}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {[
-              student.Name,
-              student.Age,
-              student["phone number"],
-              student.Level,
-              student.Captain,
-              student.Day,
-              student.Branch,
-              student.Hours,
-              formatSession(student["Session 1"]),
-              formatSession(student["Session 2"]),
-              formatSession(student["Session 3"]),
-              formatSession(student["Session 4"]),
-              formatSession(student.Assessment),
-              formatSession(student["Session 5"]),
-              formatSession(student["Session 6"]),
-              formatSession(student["Session 7"]),
-              formatSession(student["Session 8"])
-            ].map((value, index) => (
-              <td key={index} className="schedule-td">{value}</td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
+      {/* Student Info */}
+      <div className="student-info">
+        <h2>{student.Name} 🏊</h2>
+        <p><b>Age:</b> {student.Age}</p>
+        <p><b>Level:</b> {student.Level}</p>
+        <p><b>Captain:</b> {student.Captain}</p>
+        <p><b>Day:</b> {student.Day}</p>
+        <p><b>Hours:</b> {student.Hours}</p>
+        <p><b>Branch:</b> {student.Branch}</p>
+      </div>
+
+      {/* Sessions Grid */}
+      <h3 className="sessions-title">Your Sessions</h3>
+      <div className="sessions-grid">
+        {sessions.map((s, i) => (
+          <div key={i} className="session-card">
+            <span>{s}</span>
+            <span>{formatSession(student[s])}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
