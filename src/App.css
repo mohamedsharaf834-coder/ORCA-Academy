@@ -147,6 +147,7 @@ body, html {
   min-height: 100vh;
   background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
 }
+
 .login-box {
   background: rgba(0, 121, 107, 0.1);
   padding: 40px 50px;
@@ -155,27 +156,21 @@ body, html {
   text-align: center;
   width: 400px;
   max-width: 90%;
-}
-.logo-small {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  background: rgba(0,77,64,0.7);
-  padding: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
-.login-input {
+  animation: fadeIn 0.6s ease-in-out;
+}.login-input {
   width: 100%;
   padding: 12px 16px;
   margin-bottom: 16px;
   border-radius: 12px;
   border: 1px solid #009688;
   font-size: 16px;
+  background-color: #ffffff;
+  color: #004d40;
 }
+
 .login-btn {
   width: 100%;
-  padding: 12px 0;
+  padding: 14px 0;
   border-radius: 12px;
   border: none;
   background: #009688;
@@ -188,6 +183,21 @@ body, html {
 .login-btn:hover {
   background: #00796b;
   transform: translateY(-2px);
+}.logo-small {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  background: rgba(0,77,64,0.7);
+  padding: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ========== الجدول ========== */
@@ -272,4 +282,25 @@ body, html {
     width: 100px;
     padding: 10px;
   }
+}@media (max-width: 768px) {
+  .login-box {
+    width: 90%;
+    padding: 24px;
+  }
+
+  .logo-small {
+    width: 100px;
+    padding: 10px;
+  }
+
+  .login-input {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .login-btn {
+    font-size: 17px;
+    padding: 12px 0;
+  }
 }
+
