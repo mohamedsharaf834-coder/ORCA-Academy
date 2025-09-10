@@ -83,7 +83,6 @@ function Home({ onStart, setPage }) {
     </div>
   );
 }
-
 function Login({ onLogin, setPage }) {
   const [students, setStudents] = useState([]);
   const [name, setName] = useState("");
@@ -108,23 +107,33 @@ function Login({ onLogin, setPage }) {
     onLogin(found);
   };
 
- return (
- <div className="login-container">
-  <div className="login-box fade-in">
-    <button className="back-btn" onClick={() => setPage("home")}>
-      ← Back to Home
-    </button>
-    <img src="/ORCA.png" alt="Logo" className="logo-small" />
-    <input type="text" placeholder="Username" className="login-input" />
-    <input type="password" placeholder="Password" className="login-input" />
-   <button className="login-btn" onClick={() => setPage("schedule")}>
-  Login
-</button>
+  return (
+    <div className="login-container">
+      <div className="login-box fade-in">
+        <button className="back-btn" onClick={() => setPage("home")}>
+          ← Back to Home
+        </button>
+        <img src="/ORCA.png" alt="Logo" className="logo-small" />
 
-  </div>
-</div>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+          className="login-input"
+        />
+        <input
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Phone number"
+          className="login-input"
+        />
 
-);
+        <button className="login-btn" onClick={handleLogin}>
+          Login
+        </button>
+      </div>
+    </div>
+  );
 }
 
 
@@ -132,9 +141,18 @@ function App() {
   const [page, setPage] = useState("home");
   const [student, setStudent] = useState(null);
 
-  if (page === "schedule" && student) return <Schedule student={student} />;
-  if (page === "login") return <Login onLogin={(s) => { setStudent(s); setPage("schedule"); }} setPage={setPage} />;
-  return <Home onStart={() => setPage("login")} setPage={setPage} />;
+  const handleLogin = (studentData) => {
+    setStudent(studentData);
+    setPage("schedule");
+  };
+
+  return (
+    <>
+      {page === "home" && <Home onStart={() => setPage("login")} setPage={setPage} />}
+      {page === "login" && <Login onLogin={handleLogin} setPage={setPage} />}
+      {page === "schedule" && <Schedule student={student} setPage={setPage} />}
+    </>
+  );
 }
 
 export default App;
