@@ -1,4 +1,13 @@
 /* Desktop.css - For Desktop Screens Only */
+/* Navbar Desktop */
+.topbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* يخلي العناصر تتوزع */
+  align-items: center;
+  padding: 10px 20px;
+  gap: 15px;
+}
 
 /* Gallery & Activities Grids */
 /* ---------- Gallery Desktop ---------- */
