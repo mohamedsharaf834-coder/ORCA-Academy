@@ -231,15 +231,23 @@ body, html {
     display: none;
   }
   .gallery-grid {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 10px;
-  }
-  .gallery-grid img {
-    flex: 0 0 70%;
-    scroll-snap-align: start;
-  }
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 16px;
+  padding: 10px;
+}
+.gallery-grid img {
+  flex: 0 0 80%;
+  max-width: 80%;
+  border-radius: 16px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
   .activity-card {
     flex: 1 1 100%;
     max-width: 100%;
