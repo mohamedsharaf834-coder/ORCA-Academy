@@ -99,6 +99,32 @@ body, html {
   background-color: #e6b800;
   transform: scale(1.05);
 }
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.signup-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.signup-form button {
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background: #023e8a;
+}
 
 
 /* ========== الجاليري والأنشطة ========== */

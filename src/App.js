@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import Schedule from "./Schedule";
 import "./App.css";
+import SignupForm from "./SignupForm";
+
+
+
 
 function Home({ onStart, setPage }) {
   const galleryImages = [
@@ -44,6 +48,12 @@ function Home({ onStart, setPage }) {
         </p>
         <button className="get-started-btn" onClick={onStart}>Login</button>
       </section>
+      {/* Signup Section */}
+<section id="signup" className="section">
+  <h2>Register Your Child</h2>
+  <SignupForm />
+</section>
+
 
       {/* Gallery Section */}
 <section id="gallery" className="section">
