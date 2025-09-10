@@ -110,17 +110,17 @@ function Login({ onLogin, setPage }) {
 
  return (
  <div className="login-container">
-  <button className="back-btn" onClick={() => setPage("home")}>
-    ← Back to Home
-  </button>
-
   <div className="login-box fade-in">
+    <button className="back-btn" onClick={() => setPage("home")}>
+      ← Back to Home
+    </button>
     <img src="/logo.png" alt="Logo" className="logo-small" />
     <input type="text" placeholder="Username" className="login-input" />
     <input type="password" placeholder="Password" className="login-input" />
     <button className="login-btn">Login</button>
   </div>
 </div>
+
 );
 }
 
