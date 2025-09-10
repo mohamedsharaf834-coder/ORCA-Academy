@@ -114,7 +114,7 @@ function Login({ onLogin, setPage }) {
     <button className="back-btn" onClick={() => setPage("home")}>
       ← Back to Home
     </button>
-    <img src="/logo.png" alt="Logo" className="logo-small" />
+    <img src="/ORCA.png" alt="Logo" className="logo-small" />
     <input type="text" placeholder="Username" className="login-input" />
     <input type="password" placeholder="Password" className="login-input" />
     <button className="login-btn">Login</button>
