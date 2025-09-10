@@ -46,14 +46,14 @@ function Home({ onStart, setPage }) {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="section">
-        <h2>Training Gallery</h2>
-        <div className="gallery-grid">
-          {galleryImages.map((img, idx) => (
-            <img key={idx} src={img} alt={`Training ${idx+1}`} className="gallery-img"/>
-          ))}
-        </div>
-      </section>
+     <section id="gallery" className="section">
+  <h2>Training Gallery</h2>
+  <div className="gallery-grid">
+    {galleryImages.map((img, idx) => (
+      <img key={idx} src={img} alt={`Training ${idx+1}`} />
+    ))}
+  </div>
+</section>
 
       {/* Activities Section */}
       <section id="activities" className="section">
