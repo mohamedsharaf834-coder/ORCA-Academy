@@ -109,18 +109,18 @@ function Login({ onLogin, setPage }) {
   };
 
  return (
-  <div className="login-container">
-    <button className="nav-btn back-btn" onClick={() => setPage("home")}>
-      ← Back to Home
-    </button>
-    <div className="login-box fade-in">
-      <img src="/ORCA.png" alt="Logo" className="logo-small" />
-      <h1>Member Login</h1>
-      <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className="login-input"/>
-      <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" className="login-input"/>
-      <button onClick={handleLogin} className="login-btn">Login</button>
-    </div>
+ <div className="login-container">
+  <button className="back-btn" onClick={() => setPage("home")}>
+    ← Back to Home
+  </button>
+
+  <div className="login-box fade-in">
+    <img src="/logo.png" alt="Logo" className="logo-small" />
+    <input type="text" placeholder="Username" className="login-input" />
+    <input type="password" placeholder="Password" className="login-input" />
+    <button className="login-btn">Login</button>
   </div>
+</div>
 );
 }
 
