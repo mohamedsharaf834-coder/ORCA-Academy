@@ -4,7 +4,7 @@ import "./Schedule.css";
 const Schedule = ({ student, setPage }) => {
   const formatSession = (value) => {
     if (!value) return "❌";
-    return value.toString().trim().toUpperCase() === "TRUE" ? "✅" : "❌";
+    return value.toString().trim().toUpperCase() === "TRUE" ? "✅" : "";
   };
 
   const sessions = [
