@@ -108,21 +108,22 @@ function Login({ onLogin, setPage }) {
     onLogin(found);
   };
 
-  return (
-    <div className="login-container">
-      <div className="login-box fade-in">
-        <button className="nav-btn back-btn" onClick={() => setPage("home")}>
-          ← Back to Home
-        </button>
-        <img src="/ORCA.png" alt="Logo" className="logo-small" />
-        <h1>Member Login</h1>
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className="login-input"/>
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" className="login-input"/>
-        <button onClick={handleLogin} className="login-btn">Login</button>
-      </div>
+ return (
+  <div className="login-container">
+    <button className="nav-btn back-btn" onClick={() => setPage("home")}>
+      ← Back to Home
+    </button>
+    <div className="login-box fade-in">
+      <img src="/ORCA.png" alt="Logo" className="logo-small" />
+      <h1>Member Login</h1>
+      <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className="login-input"/>
+      <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" className="login-input"/>
+      <button onClick={handleLogin} className="login-btn">Login</button>
     </div>
-  );
+  </div>
+);
 }
+
 
 function App() {
   const [page, setPage] = useState("home");
