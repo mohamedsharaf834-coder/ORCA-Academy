@@ -12,9 +12,9 @@ function Home({ onStart, setPage }) {
   ];
 
   const activities = [
-    { img: "/activity1.jpg", title: "Kids Swimming", desc: "Special programs for kids with professional trainers." },
-    { img: "/activity2.jpg", title: "Adults Swimming", desc: "Skill and fitness development for adults in a safe environment." },
-    { img: "/activity3.jpg", title: "Championships", desc: "Organizing swimming championships all year round." },
+    { img: "/Kids.JPG", title: "Kids Swimming", desc: "Special programs for kids with professional trainers." },
+    { img: "/Adult.JPG", title: "Adults Swimming", desc: "Skill and fitness development for adults in a safe environment." },
+    { img: "/Championships.JPG", title: "Championships", desc: "Organizing swimming championships all year round." },
   ];
 
   return (
