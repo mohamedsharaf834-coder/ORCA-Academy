@@ -83,6 +83,23 @@ body, html {
 .about-section {
   background: rgba(0,121,107,0.15);
 }
+.get-started-btn {
+  padding: 16px 40px;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #ffcc00;
+  color: #004d40;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.get-started-btn:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
 
 /* ========== الجاليري والأنشطة ========== */
 .gallery-grid {
