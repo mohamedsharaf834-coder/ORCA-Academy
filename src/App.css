@@ -83,18 +83,34 @@ body, html {
 }
 
 /* ========== الجاليري والأنشطة ========== */
-.gallery-grid, .activities-grid {
+/* ========== Gallery Grid ========== */
+.gallery-grid {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px;
 }
-.gallery-img, .activity-card {
-  border-radius: 18px;
-  flex: 1 1 260px;
-  max-width: 260px;
-  min-width: 220px;
+.gallery-grid img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: auto;
+  border-radius: 16px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
 }
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ========== Media Queries ========== */
+@media (max-width: 768px) {
+  .gallery-grid img {
+    width: 80%;
+  }
+}
+
 .activity-card {
   background: rgba(0, 121, 107, 0.1);
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);

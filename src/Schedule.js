@@ -14,7 +14,7 @@ const Schedule = ({ student }) => {
         alt="ORCA Swimming Academy"
         className="schedule-logo"
       />
-      <h2 className="schedule-header">جدول الحصص للطالب {student.Name}</h2>
+      <h2 className="schedule-header">{student.Name}'s sessions</h2>
 
       <table className="schedule-table">
         <thead>
