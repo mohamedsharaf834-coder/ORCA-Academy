@@ -46,7 +46,9 @@ const Schedule = ({ student, setPage }) => {
         {sessions.map((s, i) => (
           <div key={i} className="session-card">
             <span>{s}</span>
-            <span>{formatSession(student[s])}</span>
+            <span>
+  {s === "Assessment" ? student[s] || "No Result" : formatSession(student[s])}
+</span>
           </div>
         ))}
       </div>
