@@ -1,5 +1,5 @@
 import React from "react";
-import './Desktop.css';
+
 
 const Schedule = ({ student }) => {
   const formatSession = (value) => {
