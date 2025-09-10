@@ -190,7 +190,7 @@ body, html {
   background: rgba(0,77,64,0.9);
   padding: 10px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  margin: 0 auto 20px;
+  margin-top: 40px; /* عشان يبعد عن الزرار */
 }
 
 .login-input {
