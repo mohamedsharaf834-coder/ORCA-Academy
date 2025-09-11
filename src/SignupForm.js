@@ -6,7 +6,7 @@ function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/add-student", {
+    const res = await fetch("https://orca-back-end-production.up.railway.app/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, phone }),
