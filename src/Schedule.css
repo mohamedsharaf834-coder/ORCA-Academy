@@ -2,7 +2,7 @@
   min-height: 100vh;
   background: linear-gradient(to bottom, #e6f7ff, #ffffff);
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .schedule-header {
@@ -10,73 +10,197 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .schedule-logo {
   height: 50px;
+  width: auto;
+  max-width: 150px;
 }
 
 .logout-btn {
   background: #0077b6;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
 }
+
 .logout-btn:hover {
   background: #023e8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
 }
 
 .student-info {
   background: white;
-  padding: 15px;
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  border-left: 4px solid #0077b6;
 }
 
 .student-info h2 {
-  margin-bottom: 10px;
+  margin: 0 0 15px 0;
   color: #0077b6;
+  font-size: 24px;
 }
+
 .student-info p {
-  color: #333; /* لون غامق للنصوص */
-  margin: 5px 0;
+  color: #333;
+  margin: 8px 0;
   font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-info b {
+  color: #0077b6;
+  font-weight: 600;
 }
 
 .sessions-title {
-  margin: 15px 0;
+  margin: 30px 0 20px 0;
   color: #333;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .sessions-grid {
   display: grid;
   gap: 15px;
+  grid-template-columns: 1fr;
 }
 
 .session-card {
   background: white;
-  padding: 12px;
+  padding: 16px;
   border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 16px;
   color: #333;
+  transition: all 0.3s ease;
+  border-left: 4px solid #0077b6;
 }
 
-/* Responsive */
-@media (min-width: 768px) {
+.session-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.session-card span:first-child {
+  font-weight: 600;
+  color: #0077b6;
+}
+
+.session-card span:last-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .schedule-container {
+    padding: 15px;
+  }
+
+  .sessions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .student-info {
+    padding: 15px;
+  }
+
+  .student-info h2 {
+    font-size: 20px;
+  }
+
+  .student-info p {
+    font-size: 14px;
+  }
+}
+
+/* Responsive - Small Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
   .sessions-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
+/* Responsive - Desktop */
+@media (min-width: 1025px) {
+  .schedule-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   .sessions-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile - Extra adjustments */
+@media (max-width: 480px) {
+  .schedule-container {
+    padding: 10px;
+  }
+
+  .schedule-header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .schedule-logo {
+    max-width: 120px;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+
+  .sessions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-info {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .student-info h2 {
+    font-size: 18px;
+  }
+
+  .student-info p {
+    font-size: 12px;
+  }
+
+  .sessions-title {
+    font-size: 16px;
+  }
+
+  .session-card {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .session-card span:last-child {
+    font-size: 16px;
   }
 }

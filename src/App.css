@@ -4,9 +4,7 @@ body, html {
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
-background: #FFF000;
-
-
+  background: #ffffff;
   overflow-x: hidden;
 }
 
@@ -26,6 +24,7 @@ background: #FFF000;
   box-shadow: 0 2px 12px #00251a;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   flex-wrap: wrap;
 }
@@ -105,26 +104,48 @@ background: #FFF000;
   flex-direction: column;
   max-width: 300px;
   margin: 0 auto;
+  gap: 12px;
+}
+
+.signup-form div {
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-form input {
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+}
+
+.signup-form input:focus {
+  outline: none;
+  border-color: #009688;
+  box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.1);
 }
 
 .signup-form button {
-  background: #0077b6;
+  background: #009688;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.signup-form button:hover {
-  background: #023e8a;
+.signup-form button:hover:not(:disabled) {
+  background: #00796b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 150, 136, 0.3);
+}
+
+.signup-form button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 
@@ -189,24 +210,35 @@ background: #FFF000;
   border-radius: 8px;
   padding: 8px 16px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-.back-btn:hover {
+.back-btn:hover:not(:disabled) {
   background: #00695c;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 77, 64, 0.3);
+}
+
+.back-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.back-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .login-box {
-  position: relative; /* عشان الزرار يتمركز جوه البوكس */
+  position: relative;
   background: rgba(0, 121, 107, 0.1);
-  padding: 60px 30px 40px; /* padding فوق أكبر عشان نسيب مكان للزرار */
+  padding: 60px 30px 40px;
   border-radius: 20px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.25);
   width: 400px;
   max-width: 90%;
   animation: fadeIn 0.6s ease-in-out;
   text-align: center;
+  border: 1px solid rgba(0, 121, 107, 0.2);
 }
 
 
@@ -223,11 +255,67 @@ background: #FFF000;
 .login-input {
   display: block;
   width: 100%;
-  margin: 10px 0;
+  margin: 12px 0;
   padding: 12px;
   font-size: 16px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #009688;
+  box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.1);
+}
+
+.input-error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  text-align: right;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid #c62828;
+  text-align: right;
+  font-weight: 500;
+}
+
+.success-message {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid #2e7d32;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Disabled state للمدخلات والأزرار */
+input:disabled,
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+button:disabled {
+  background-color: #ccc !important;
+}
+
+.login-btn:disabled {
+  background: #b0bec5;
+}
+
+.sign-up-button:disabled {
+  background: #b0bec5;
 }
 
 .login-btn {
@@ -354,6 +442,9 @@ background: #FFF000;
   .login-btn {
     font-size: 16px;
     padding: 12px 0;
+  }
+  .signup-form {
+    max-width: 90%;
   }
 }
 

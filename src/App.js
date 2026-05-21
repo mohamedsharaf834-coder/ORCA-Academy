@@ -4,6 +4,7 @@ import Papa from "papaparse";
 import Schedule from "./Schedule";
 import "./App.css";
 import SignupForm from "./SignupForm";
+import { CONFIG, validateName, validatePhone } from "./config";
 
 
 
@@ -97,49 +98,145 @@ function Login({ onLogin, setPage }) {
   const [students, setStudents] = useState([]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [nameError, setNameError] = useState(null);
+  const [phoneError, setPhoneError] = useState(null);
 
   useEffect(() => {
-    fetch("/data/students.csv")
-      .then(res => res.text())
-      .then(csvText => {
+    const loadStudents = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const res = await fetch(CONFIG.STUDENTS_DATA_PATH);
+        if (!res.ok) {
+          throw new Error(CONFIG.ERRORS.NETWORK_ERROR);
+        }
+        const csvText = await res.text();
         const results = Papa.parse(csvText, { header: true });
+        if (!results.data || results.data.length === 0) {
+          throw new Error("لم يتم تحميل بيانات الطلاب");
+        }
         setStudents(results.data);
-      });
+      } catch (err) {
+        setError(err.message || CONFIG.ERRORS.SERVER_ERROR);
+        console.error("Error loading students:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadStudents();
   }, []);
 
-  const handleLogin = () => {
-    const found = students.find(
-      s =>
-        s?.Name?.trim().toLowerCase() === name.trim().toLowerCase() &&
-        s?.["phone number"]?.trim() === phone.trim()
-    );
-    if (!found) return alert("Data not found ❌");
-    onLogin(found);
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    setName(value);
+    setNameError(validateName(value));
   };
+
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    setPhone(value);
+    setPhoneError(validatePhone(value));
+  };
+
+  const handleLogin = async () => {
+    // Validate inputs
+    const nameErr = validateName(name);
+    const phoneErr = validatePhone(phone);
+    
+    setNameError(nameErr);
+    setPhoneError(phoneErr);
+    
+    if (nameErr || phoneErr) {
+      return;
+    }
+
+    try {
+      setLoginLoading(true);
+      setError(null);
+
+      const found = students.find(
+        s =>
+          s?.Name?.trim().toLowerCase() === name.trim().toLowerCase() &&
+          s?.["phone number"]?.trim() === phone.trim()
+      );
+
+      if (!found) {
+        setError(CONFIG.ERRORS.LOGIN_FAILED);
+        return;
+      }
+
+      onLogin(found);
+    } catch (err) {
+      setError(CONFIG.ERRORS.SERVER_ERROR);
+      console.error("Login error:", err);
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !loginLoading) {
+      handleLogin();
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="login-container">
+        <div className="login-box fade-in">
+          <p style={{ fontSize: "18px", color: "#009688" }}>جاري التحميل...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="login-container">
       <div className="login-box fade-in">
-        <button className="back-btn" onClick={() => setPage("home")}>
-          ← Back to Home
+        <button className="back-btn" onClick={() => setPage("home")} disabled={loginLoading}>
+          ← الرجوع للرئيسية
         </button>
         <img src="/ORCA.png" alt="Logo" className="logo-small" />
 
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          className="login-input"
-        />
-        <input
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="Phone number"
-          className="login-input"
-        />
+        {error && (
+          <div className="error-message">
+            {error}
+          </div>
+        )}
 
-        <button className="login-btn" onClick={handleLogin}>
-          Login
+        <div>
+          <input
+            value={name}
+            onChange={handleNameChange}
+            onKeyPress={handleKeyPress}
+            placeholder="الاسم"
+            className="login-input"
+            disabled={loginLoading}
+          />
+          {nameError && <span className="input-error">{nameError}</span>}
+        </div>
+
+        <div>
+          <input
+            value={phone}
+            onChange={handlePhoneChange}
+            onKeyPress={handleKeyPress}
+            placeholder="رقم الهاتف"
+            className="login-input"
+            disabled={loginLoading}
+          />
+          {phoneError && <span className="input-error">{phoneError}</span>}
+        </div>
+
+        <button 
+          className="login-btn" 
+          onClick={handleLogin}
+          disabled={loginLoading || !!nameError || !!phoneError}
+        >
+          {loginLoading ? "جاري الدخول..." : "دخول"}
         </button>
       </div>
     </div>
