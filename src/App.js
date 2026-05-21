@@ -10,12 +10,6 @@ import { CONFIG, validateName, validatePhone } from "./config";
 
 
 function Home({ onStart, setPage }) {
-  const galleryImages = [
-    "/training1.JPG",
-    "/training2.JPG",
-    "/training3.JPG",
-  ];
-
   const activities = [
     { img: "/Kids.JPG", title: "Kids Swimming", desc: "Special programs for kids with professional trainers." },
     { img: "/Adult.JPG", title: "Adults Swimming", desc: "Skill and fitness development for adults in a safe environment." },

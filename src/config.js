@@ -44,8 +44,8 @@ export const validatePhone = (phone) => {
   if (!phone || phone.trim().length === 0) {
     return CONFIG.ERRORS.PHONE_REQUIRED;
   }
-  const phoneRegex = /^[0-9\+\-\s]+$/;
-  const cleanPhone = phone.replace(/[\+\-\s]/g, "");
+  const phoneRegex = /^[0-9+\-\s]+$/;
+  const cleanPhone = phone.replace(/[+\-\s]/g, "");
   
   if (cleanPhone.length < CONFIG.VALIDATION.PHONE_MIN_LENGTH || 
       cleanPhone.length > CONFIG.VALIDATION.PHONE_MAX_LENGTH) {

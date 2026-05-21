@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://orca-academy.vercel.app/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://orca-academy.vercel.app/#about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orca-academy.vercel.app/#signup</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orca-academy.vercel.app/#gallery</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://orca-academy.vercel.app/#activities</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://orca-academy.vercel.app/#contact</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://orca-academy.vercel.app/login</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://orca-academy.vercel.app/schedule</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>

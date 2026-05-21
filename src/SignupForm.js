@@ -54,7 +54,7 @@ function SignupForm() {
         throw new Error("فشل التسجيل، يرجى المحاولة لاحقاً");
       }
 
-      const data = await res.json();
+      await res.json();
       setSuccess(true);
       setName("");
       setPhone("");
