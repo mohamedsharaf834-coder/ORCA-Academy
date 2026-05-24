@@ -12,12 +12,6 @@
   --water-blue: #1E90FF;
   --white: #FFFFFF;
   --dark-text: #001F3F;
-  
-  /* ألوان إضافية للأطفال */
-  --coral: #FF6B6B;
-  --mint: #00D084;
-  --soft-pink: #FFB6D9;
-  --light-yellow: #FFFACD;
 }
 
 /* ========== الأساسيات ========== */
@@ -110,7 +104,7 @@ html {
 }
 
 .member-btn:hover {
-  background: linear-gradient(135deg, var(--bright-orange), var(--coral));
+  background: linear-gradient(135deg, var(--bright-orange), #FF6B6B);
   color: white;
   box-shadow: 0 10px 25px rgba(255, 159, 67, 0.5);
 }
@@ -612,7 +606,7 @@ html {
 
 .schedule-table td {
   padding: 18px;
-  border-bottom: 2px solid var(--light-yellow);
+  border-bottom: 2px solid #FFE5A8;
   transition: all 0.2s ease;
   font-weight: 700;
   color: var(--dark-text);
