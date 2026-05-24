@@ -248,7 +248,7 @@ function Home({ onStart, setPage, lang, setLang }) {
         <h2>{t.contact.title}</h2>
         <p className="contact-text">{t.contact.text}</p>
         <div className="contact-links">
-          <a href="https://wa.me/201012201021" target="_blank" rel="noopener noreferrer" className="nav-btn whatsapp-btn">
+          <a href="https://wa.me/201007959669" target="_blank" rel="noopener noreferrer" className="nav-btn whatsapp-btn">
             💬 WhatsApp
           </a>
           <a href="https://www.facebook.com/profile.php?id=61578271988798" target="_blank" rel="noopener noreferrer" className="nav-btn fb-btn">
