@@ -142,6 +142,7 @@ const translations = {
 
 function Home({ onStart, setPage, lang, setLang }) {
   const t = translations[lang];
+  const [menuOpen, setMenuOpen] = useState(false);
   
   const activities = [
     { img: "/Kids.JPG", ...t.activities.items[0] },
@@ -149,15 +150,34 @@ function Home({ onStart, setPage, lang, setLang }) {
     { img: "/Championships.JPG", ...t.activities.items[2] },
   ];
 
+  const handleNavClick = (href) => {
+    setMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className={`home-container ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="topbar">
-        <div className="nav-links">
-          <a href="#about" className="nav-btn">{t.nav.about}</a>
-          <a href="#why" className="nav-btn">{t.nav.why}</a>
-          <a href="#gallery" className="nav-btn">{t.nav.gallery}</a>
-          <a href="#activities" className="nav-btn">{t.nav.activities}</a>
-          <a href="#contact" className="nav-btn">{t.nav.contact}</a>
+        <div className="topbar-left">
+          <button 
+            className="hamburger-btn" 
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div className={`nav-menu ${menuOpen ? 'open' : ''}`}>
+            <a href="#about" className="nav-btn" onClick={() => handleNavClick('#about')}>{t.nav.about}</a>
+            <a href="#why" className="nav-btn" onClick={() => handleNavClick('#why')}>{t.nav.why}</a>
+            <a href="#gallery" className="nav-btn" onClick={() => handleNavClick('#gallery')}>{t.nav.gallery}</a>
+            <a href="#activities" className="nav-btn" onClick={() => handleNavClick('#activities')}>{t.nav.activities}</a>
+            <a href="#contact" className="nav-btn" onClick={() => handleNavClick('#contact')}>{t.nav.contact}</a>
+          </div>
         </div>
         <div className="nav-actions">
           <button className="lang-switch-btn" onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}>
