@@ -1,182 +1,299 @@
-import React, { useState } from 'react';
-import './App.css';
-import SignupForm from './SignupForm';
-import Schedule from './Schedule';
+import { useEffect, useState } from "react";
+import Papa from "papaparse";
+import Schedule from "./Schedule";
+import "./App.css";
+import SignupForm from "./SignupForm";
+import { CONFIG, validateName, validatePhone } from "./config";
 
-const testimonials = [
-  {
-    name: 'م/ سارة',
-    text: 'الاهتمام مع المجموعات الصغيرة فرق جدًا مع بنتي، وبقت تحب السباحة وتستمتع بكل حصة.',
-  },
-  {
-    name: 'أ/ أحمد',
-    text: 'تنظيم ممتاز، وطريقة شرح بسيطة ومريحة للأطفال، والأكاديمية فعلاً مميزة.',
-  },
-  {
-    name: 'أ/ منى',
-    text: 'المدربون محترفون جدًا، والتعامل مع الأطفال راقي وآمن.',
-  },
-];
-
-const programs = [
-  {
-    title: 'مبتدئين',
-    desc: 'تعليم أساسيات السباحة خطوة بخطوة للأطفال بطريقة ممتعة وآمنة.',
-  },
-  {
-    title: 'تطوير المستوى',
-    desc: 'تحسين المهارات، الثقة في الماء، وتطوير الأداء بشكل تدريجي.',
-  },
-  {
-    title: 'مجموعات صغيرة',
-    desc: 'حد أقصى 4 أطفال في المجموعة لضمان تركيز أكبر لكل طفل.',
-  },
-];
-
-function App() {
-  const [activeSection, setActiveSection] = useState('home');
+function Home({ onStart, setPage }) {
+  const activities = [
+    {
+      img: "/Kids.JPG",
+      title: "Kids Swimming",
+      desc: "Special programs for kids with professional trainers.",
+    },
+    {
+      img: "/Adult.JPG",
+      title: "Adults Swimming",
+      desc: "Skill and fitness development for adults in a safe environment.",
+    },
+    {
+      img: "/Championships.JPG",
+      title: "Championships",
+      desc: "Organizing swimming championships all year round.",
+    },
+  ];
 
   return (
-    <div className="app">
-      <header className="topbar">
-        <div className="brand">
-          <div className="brand-mark">🐋</div>
-          <div>
-            <h1>ORCA Swimming Academy</h1>
-            <p>ENJOY • SWIM • SUCCEED</p>
-          </div>
+    <div className="home-container">
+      <div className="topbar">
+        <a href="#about" className="nav-btn">About</a>
+        <a href="#why" className="nav-btn">Why Orca?</a>
+        <a href="#gallery" className="nav-btn">Gallery</a>
+        <a href="#activities" className="nav-btn">Activities</a>
+        <a href="#contact" className="nav-btn">Contact</a>
+        <button className="nav-btn member-btn" onClick={() => setPage("login")}>
+          My Classes (Members)
+        </button>
+      </div>
+
+      <div className="hero-section">
+        <div className="home-logo">
+          <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" />
         </div>
 
-        <nav className="nav">
-          <button onClick={() => setActiveSection('home')}>الرئيسية</button>
-          <button onClick={() => setActiveSection('programs')}>البرامج</button>
-          <button onClick={() => setActiveSection('schedule')}>الجدول</button>
-          <button onClick={() => setActiveSection('contact')}>التسجيل</button>
-        </nav>
-      </header>
+        <section id="about" className="section about-section">
+          <span className="badge">Luxor City, Egypt</span>
+          <h1>ORCA Swimming Academy</h1>
+          <p className="main-desc">
+            Welcome to ORCA Academy 🐋<br />
+            Learn, train, and achieve excellence in swimming with professional coaches,
+            modern programs, and small groups of maximum 4 children for better focus.
+          </p>
 
-      <main>
-        <section className="hero" id="home">
-          <div className="hero-content">
-            <span className="badge">Luxor City, Egypt</span>
-            <h2>أكاديمية سباحة للأطفال بمجموعات صغيرة واهتمام أكبر</h2>
-            <p>
-              ORCA Swimming Academy بتقدّم تجربة تعليم سباحة ممتعة وآمنة للأطفال،
-              مع متابعة فردية وتركيز أعلى داخل مجموعات صغيرة لا تتجاوز 4 أطفال.
-            </p>
+          <div className="hero-actions">
+            <button className="get-started-btn" onClick={onStart}>Login</button>
+            <a href="#signup" className="secondary-link">Register Your Child</a>
+          </div>
+        </section>
+      </div>
 
-            <div className="hero-actions">
-              <a href="#contact" className="primary-btn">سجّل الآن</a>
-              <a href="tel:+201007959669" className="secondary-btn">اتصل بنا</a>
+      <section id="why" className="section">
+        <h2>Why ORCA?</h2>
+        <div className="why-grid">
+          <div className="info-card">
+            <h3>Small Groups</h3>
+            <p>Maximum 4 kids per group to ensure more attention for every child.</p>
+          </div>
+          <div className="info-card">
+            <h3>Safe Learning</h3>
+            <p>A friendly and secure environment that helps kids feel confident in the water.</p>
+          </div>
+          <div className="info-card">
+            <h3>Professional Coaches</h3>
+            <p>Experienced trainers focused on progress, comfort, and real results.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="signup" className="section">
+        <h2>Register Your Child</h2>
+        <SignupForm />
+      </section>
+
+      <section id="gallery" className="section">
+        <h2>Training Gallery</h2>
+        <div className="gallery-grid">
+          <img src="/training1.JPG" alt="Training 1" />
+          <img src="/training2.JPG" alt="Training 2" />
+          <img src="/training3.JPG" alt="Training 3" />
+        </div>
+      </section>
+
+      <section id="activities" className="section">
+        <h2>Academy Activities</h2>
+        <div className="activities-grid">
+          {activities.map((act, idx) => (
+            <div key={idx} className="activity-card">
+              <img src={act.img} alt={act.title} />
+              <h3>{act.title}</h3>
+              <p>{act.desc}</p>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="hero-card">
-            <div className="orca-icon">🐋</div>
-            <h3>ENJOY • SWIM • SUCCEED</h3>
-            <p>تعلم، متعة، وتقدم حقيقي داخل بيئة آمنة ومحببة للأطفال.</p>
-          </div>
-        </section>
+      <section id="contact" className="section contact-section">
+        <h2>Contact Us</h2>
+        <p className="contact-text">
+          Reach us directly through WhatsApp or Facebook for quick responses and booking.
+        </p>
+        <div className="contact-links">
+          <a
+            href="https://wa.me/201012201021"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-btn whatsapp-btn"
+          >
+            WhatsApp
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61578271988798"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-btn fb-btn"
+          >
+            Facebook
+          </a>
+        </div>
+      </section>
 
-        <section className="info-strip">
-          <div>
-            <strong>4 max</strong>
-            <span>أقصى عدد في المجموعة</span>
-          </div>
-          <div>
-            <strong>Kids Focus</strong>
-            <span>مخصص للأطفال</span>
-          </div>
-          <div>
-            <strong>Luxor</strong>
-            <span>مدينة الأقصر</span>
-          </div>
-          <div>
-            <strong>WhatsApp</strong>
-            <span>تواصل سريع ومباشر</span>
-          </div>
-        </section>
-
-        <section className="section" id="programs">
-          <div className="section-head">
-            <h2>البرامج</h2>
-            <p>برامج مصممة لتناسب مختلف المستويات العمرية والمهارية.</p>
-          </div>
-
-          <div className="card-grid">
-            {programs.map((item) => (
-              <article className="card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section why">
-          <div className="section-head">
-            <h2>ليه ORCA؟</h2>
-            <p>لأننا بنهتم بجودة التعليم، الراحة، والمتابعة الحقيقية لكل طفل.</p>
-          </div>
-
-          <div className="why-list">
-            <div className="why-item">مجموعات صغيرة = تركيز أكبر.</div>
-            <div className="why-item">بيئة آمنة ومشجعة للأطفال.</div>
-            <div className="why-item">أسلوب ممتع يخلّي الطفل يحب السباحة.</div>
-            <div className="why-item">متابعة واضحة مع أولياء الأمور.</div>
-          </div>
-        </section>
-
-        <section className="section" id="schedule">
-          <div className="section-head">
-            <h2>جدول الدروس</h2>
-            <p>يمكنك مراجعة أوقات التدريب وتنظيم الحجز حسب المتاح.</p>
-          </div>
-          <Schedule />
-        </section>
-
-        <section className="section testimonials">
-          <div className="section-head">
-            <h2>آراء أولياء الأمور</h2>
-            <p>الثقة بتبنى من التجربة والنتائج.</p>
-          </div>
-
-          <div className="card-grid">
-            {testimonials.map((item) => (
-              <article className="card testimonial" key={item.name}>
-                <p>“{item.text}”</p>
-                <h4>{item.name}</h4>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section" id="contact">
-          <div className="section-head">
-            <h2>التسجيل والتواصل</h2>
-            <p>املأ البيانات وسيتم التواصل معك في أقرب وقت.</p>
-          </div>
-
-          <div className="contact-layout">
-            <SignupForm />
-            <div className="contact-box">
-              <h3>معلومات التواصل</h3>
-              <p>📍 Luxor City, Egypt</p>
-              <p>📞 +20 10 07959669</p>
-              <p>📘 Facebook: ORCA Swimming Academy</p>
-              <p>🌐 orca-academy.vercel.app</p>
-              <a className="whatsapp-btn" href="https://wa.me/201007959669" target="_blank" rel="noreferrer">
-                تواصل عبر واتساب
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="footer">
-        <p>© 2026 ORCA Swimming Academy. All rights reserved.</p>
+      <footer>
+        &copy; {new Date().getFullYear()} ORCA Swimming Academy. All rights reserved.
       </footer>
     </div>
+  );
+}
+
+function Login({ onLogin, setPage }) {
+  const [students, setStudents] = useState([]);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [nameError, setNameError] = useState(null);
+  const [phoneError, setPhoneError] = useState(null);
+
+  useEffect(() => {
+    const loadStudents = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const res = await fetch(CONFIG.STUDENTS_DATA_PATH);
+        if (!res.ok) {
+          throw new Error(CONFIG.ERRORS.NETWORK_ERROR);
+        }
+        const csvText = await res.text();
+        const results = Papa.parse(csvText, { header: true });
+        if (!results.data || results.data.length === 0) {
+          throw new Error("لم يتم تحميل بيانات الطلاب");
+        }
+        setStudents(results.data);
+      } catch (err) {
+        setError(err.message || CONFIG.ERRORS.SERVER_ERROR);
+        console.error("Error loading students:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadStudents();
+  }, []);
+
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    setName(value);
+    setNameError(validateName(value));
+  };
+
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    setPhone(value);
+    setPhoneError(validatePhone(value));
+  };
+
+  const handleLogin = async () => {
+    const nameErr = validateName(name);
+    const phoneErr = validatePhone(phone);
+
+    setNameError(nameErr);
+    setPhoneError(phoneErr);
+
+    if (nameErr || phoneErr) {
+      return;
+    }
+
+    try {
+      setLoginLoading(true);
+      setError(null);
+
+      const found = students.find(
+        (s) =>
+          s?.Name?.trim().toLowerCase() === name.trim().toLowerCase() &&
+          s?.["phone number"]?.trim() === phone.trim()
+      );
+
+      if (!found) {
+        setError(CONFIG.ERRORS.LOGIN_FAILED);
+        return;
+      }
+
+      onLogin(found);
+    } catch (err) {
+      setError(CONFIG.ERRORS.SERVER_ERROR);
+      console.error("Login error:", err);
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !loginLoading) {
+      handleLogin();
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="login-container">
+        <div className="login-box fade-in">
+          <p style={{ fontSize: "18px", color: "#009688" }}>جاري التحميل...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="login-container">
+      <div className="login-box fade-in">
+        <button className="back-btn" onClick={() => setPage("home")} disabled={loginLoading}>
+          ← الرجوع للرئيسية
+        </button>
+        <img src="/ORCA.png" alt="Logo" className="logo-small" />
+
+        {error && <div className="error-message">{error}</div>}
+
+        <div>
+          <input
+            value={name}
+            onChange={handleNameChange}
+            onKeyPress={handleKeyPress}
+            placeholder="الاسم"
+            className="login-input"
+            disabled={loginLoading}
+          />
+          {nameError && <span className="input-error">{nameError}</span>}
+        </div>
+
+        <div>
+          <input
+            value={phone}
+            onChange={handlePhoneChange}
+            onKeyPress={handleKeyPress}
+            placeholder="رقم الهاتف"
+            className="login-input"
+            disabled={loginLoading}
+          />
+          {phoneError && <span className="input-error">{phoneError}</span>}
+        </div>
+
+        <button
+          className="login-btn"
+          onClick={handleLogin}
+          disabled={loginLoading || !!nameError || !!phoneError}
+        >
+          {loginLoading ? "جاري الدخول..." : "دخول"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [page, setPage] = useState("home");
+  const [student, setStudent] = useState(null);
+
+  const handleLogin = (studentData) => {
+    setStudent(studentData);
+    setPage("schedule");
+  };
+
+  return (
+    <>
+      {page === "home" && <Home onStart={() => setPage("login")} setPage={setPage} />}
+      {page === "login" && <Login onLogin={handleLogin} setPage={setPage} />}
+      {page === "schedule" && <Schedule student={student} setPage={setPage} />}
+    </>
   );
 }
 
