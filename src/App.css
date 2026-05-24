@@ -2,7 +2,6 @@
 
 /* ========== ORCA KIDS ACADEMY - VIBRANT & FUN ========== */
 :root {
-  /* الألوان الأساسية من اللوجو */
   --primary-yellow: #FFD93D;
   --primary-blue: #00B8FF;
   --dark-blue: #003C8F;
@@ -28,6 +27,7 @@ html {
   color: var(--dark-text);
   overflow-x: hidden;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 /* ========== TOPBAR - شريط التنقل العلوي ========== */
@@ -46,6 +46,7 @@ html {
   box-shadow: 0 8px 25px rgba(0, 60, 143, 0.3), 0 0 30px rgba(0, 184, 255, 0.2);
   border-bottom: 4px solid var(--primary-yellow);
   animation: topbarPulse 2s ease-in-out infinite;
+  flex-wrap: wrap;
 }
 
 @keyframes topbarPulse {
@@ -71,6 +72,7 @@ html {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
 }
 
 .nav-btn::before {
@@ -87,7 +89,7 @@ html {
 .nav-btn:hover {
   background: linear-gradient(135deg, var(--primary-yellow), var(--bright-orange));
   color: var(--dark-blue);
-  transform: translateY(-4px) scale(1.1);
+  transform: translateY(-4px) scale(1.08);
   box-shadow: 0 8px 20px rgba(255, 217, 61, 0.4);
   border-color: var(--primary-yellow);
 }
@@ -122,7 +124,6 @@ html {
   overflow: hidden;
 }
 
-/* خلفية موجات مائية */
 .home-container::before {
   content: '';
   position: absolute;
@@ -133,6 +134,7 @@ html {
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="%2374B9FF" opacity="0.3"/><path d="M0,60 Q300,10 600,60 T1200,60 L1200,120 L0,120 Z" fill="%2300B8FF" opacity="0.2"/></svg>') repeat-x;
   animation: wave 8s linear infinite;
   z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes wave {
@@ -144,29 +146,29 @@ html {
   }
 }
 
+.hero-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
 .home-logo {
   margin-bottom: 30px;
-  animation: bounce 2s ease-in-out infinite, spin 6s linear infinite;
+  animation: logoFloat 2.8s ease-in-out infinite;
   filter: drop-shadow(0 10px 30px rgba(0, 184, 255, 0.4)) drop-shadow(0 0 20px rgba(255, 217, 61, 0.2));
   position: relative;
   z-index: 2;
 }
 
-@keyframes bounce {
+@keyframes logoFloat {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    transform: translateY(-12px) scale(1.02);
   }
 }
 
@@ -239,7 +241,10 @@ html {
 /* ========== BUTTONS ========== */
 .get-started-btn,
 .login-btn,
-.signup-form button {
+.signup-form button,
+.whatsapp-btn,
+.fb-btn,
+.secondary-link {
   background: linear-gradient(135deg, var(--primary-yellow), var(--bright-orange));
   color: var(--dark-blue);
   border: none;
@@ -255,11 +260,14 @@ html {
   text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-block;
+  text-decoration: none;
 }
 
 .get-started-btn::before,
 .login-btn::before,
-.signup-form button::before {
+.signup-form button::before,
+.whatsapp-btn::before,
+.fb-btn::before {
   content: '🌊';
   position: absolute;
   left: -40px;
@@ -271,7 +279,9 @@ html {
 
 .get-started-btn::after,
 .login-btn::after,
-.signup-form button::after {
+.signup-form button::after,
+.whatsapp-btn::after,
+.fb-btn::after {
   content: '🎉';
   position: absolute;
   right: -40px;
@@ -283,27 +293,46 @@ html {
 
 .get-started-btn:hover,
 .login-btn:hover,
-.signup-form button:hover {
-  transform: translateY(-6px) scale(1.12);
+.signup-form button:hover,
+.whatsapp-btn:hover,
+.fb-btn:hover,
+.secondary-link:hover {
+  transform: translateY(-6px) scale(1.08);
   box-shadow: 0 15px 40px rgba(255, 217, 61, 0.6), 0 0 30px rgba(255, 159, 67, 0.4);
 }
 
 .get-started-btn:hover::before,
 .login-btn:hover::before,
-.signup-form button:hover::before {
+.signup-form button:hover::before,
+.whatsapp-btn:hover::before,
+.fb-btn:hover::before {
   left: 10px;
 }
 
 .get-started-btn:hover::after,
 .login-btn:hover::after,
-.signup-form button:hover::after {
+.signup-form button:hover::after,
+.whatsapp-btn:hover::after,
+.fb-btn:hover::after {
   right: 10px;
 }
 
 .get-started-btn:active,
 .login-btn:active,
-.signup-form button:active {
-  transform: translateY(-2px) scale(1.08);
+.signup-form button:active,
+.whatsapp-btn:active,
+.fb-btn:active {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.secondary-link {
+  background: transparent;
+  border: 3px solid var(--primary-yellow);
+  color: var(--dark-blue);
+}
+
+.secondary-link:hover {
+  background: linear-gradient(135deg, var(--primary-yellow), var(--bright-orange));
 }
 
 /* ========== الأقسام ========== */
@@ -435,12 +464,18 @@ html {
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.12) rotate(-3deg);
+  transform: scale(1.08);
   box-shadow: 0 18px 50px rgba(0, 184, 255, 0.4), 0 0 30px rgba(255, 217, 61, 0.3);
   border-color: var(--bright-orange);
 }
 
 /* ========== النشاطات ========== */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
 .activity-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 250, 205, 0.8) 100%);
   border-radius: 28px;
@@ -484,7 +519,7 @@ html {
 }
 
 .activity-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* ========== LOGIN ========== */
@@ -558,7 +593,7 @@ html {
   box-shadow: 0 10px 30px rgba(0, 184, 255, 0.3);
   margin: 0 auto 28px;
   border: 5px solid var(--primary-yellow);
-  animation: bounce 2s ease-in-out infinite;
+  animation: logoFloat 2.8s ease-in-out infinite;
 }
 
 /* ========== الجدول ========== */
@@ -632,7 +667,6 @@ html {
 
 /* ========== MOBILE ========== */
 @media (max-width: 768px) {
-
   .hero-title {
     font-size: 44px;
     letter-spacing: 1px;
@@ -687,7 +721,10 @@ html {
 
   .get-started-btn,
   .login-btn,
-  .signup-form button {
+  .signup-form button,
+  .whatsapp-btn,
+  .fb-btn,
+  .secondary-link {
     padding: 14px 32px;
     font-size: 16px;
   }
@@ -712,11 +749,14 @@ html {
   .home-container {
     padding: 120px 20px 40px;
   }
+
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ========== TABLET ========== */
 @media (max-width: 1024px) and (min-width: 769px) {
-
   .section {
     width: 95%;
   }
