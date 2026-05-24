@@ -9,93 +9,137 @@ function Home({ onStart, setPage }) {
   const activities = [
     {
       img: "/Kids.JPG",
-      title: "Kids Swimming",
-      desc: "Special programs for kids with professional trainers.",
+      title: "سباحة الأطفال",
+      desc: "برامج متخصصة للأطفال مع مدربين محترفين وخبرة عالية.",
+      icon: "👶",
     },
     {
       img: "/Adult.JPG",
-      title: "Adults Swimming",
-      desc: "Skill and fitness development for adults in a safe environment.",
+      title: "سباحة الكبار",
+      desc: "تطوير المهارات واللياقة البدنية للكبار في بيئة آمنة وودية.",
+      icon: "🏊",
     },
     {
       img: "/Championships.JPG",
-      title: "Championships",
-      desc: "Organizing swimming championships all year round.",
+      title: "البطولات",
+      desc: "تنظيم بطولات سباحة طوال السنة لتطوير المواهب والمهارات.",
+      icon: "🏆",
+    },
+  ];
+
+  const whyOrcaFeatures = [
+    {
+      title: "مجموعات صغيرة",
+      desc: "حد أقصى 4 أطفال في المجموعة لضمان الاهتمام الكامل بكل طفل.",
+      icon: "👥",
+    },
+    {
+      title: "تعلم آمن",
+      desc: "بيئة ودية وآمنة تساعد الأطفال على الشعور بالثقة في الماء.",
+      icon: "🛡️",
+    },
+    {
+      title: "مدربون محترفون",
+      desc: "مدربون ذوو خبرة يركزون على التقدم والراحة والنتائج الحقيقية.",
+      icon: "🎓",
     },
   ];
 
   return (
     <div className="home-container">
       <div className="topbar">
-        <a href="#about" className="nav-btn">About</a>
-        <a href="#why" className="nav-btn">Why Orca?</a>
-        <a href="#gallery" className="nav-btn">Gallery</a>
-        <a href="#activities" className="nav-btn">Activities</a>
-        <a href="#contact" className="nav-btn">Contact</a>
+        <a href="#about" className="nav-btn">عن الأكاديمية</a>
+        <a href="#why" className="nav-btn">لماذا ORCA؟</a>
+        <a href="#gallery" className="nav-btn">المعرض</a>
+        <a href="#activities" className="nav-btn">الأنشطة</a>
+        <a href="#contact" className="nav-btn">تواصل معنا</a>
         <button className="nav-btn member-btn" onClick={() => setPage("login")}>
-          My Classes (Members)
+          فصولي (الأعضاء)
         </button>
       </div>
 
       <div className="hero-section">
         <div className="home-logo">
-          <img src="/ORCA2.png" alt="ORCA Logo" className="logo-large" />
+          <img src="/ORCA2.png" alt="شعار ORCA" className="logo-large" />
         </div>
 
         <section id="about" className="section about-section">
-          <span className="badge">Luxor City, Egypt</span>
-          <h1 className="hero-title">ORCA Swimming Academy</h1>
+          <span className="badge">🌍 مدينة الأقصر، مصر</span>
+          <h1 className="hero-title">أكاديمية ORCA للسباحة</h1>
           <p className="main-desc hero-subtitle">
-            Welcome to ORCA Academy 🐋
+            مرحباً بك في أكاديمية ORCA 🐋
             <br />
-            Learn, train, and achieve excellence in swimming with professional coaches,
-            modern programs, and small groups of maximum 4 children for better focus.
+            تعلم وتدرب وحقق التميز في السباحة مع مدربين محترفين وبرامج حديثة ومجموعات صغيرة بحد أقصى 4 أطفال للتركيز الأفضل.
           </p>
 
           <div className="hero-actions">
-            <button className="get-started-btn" onClick={onStart}>Login</button>
-            <a href="#signup" className="secondary-link">Register Your Child</a>
+            <button className="get-started-btn" onClick={onStart}>دخول الأعضاء</button>
+            <a href="#signup" className="secondary-link">سجل طفلك الآن</a>
           </div>
         </section>
       </div>
 
-      <section id="why" className="section">
-        <h2>Why ORCA?</h2>
+      <section id="why" className="section why-section">
+        <h2>لماذا تختار ORCA؟</h2>
         <div className="why-grid">
-          <div className="info-card">
-            <h3>Small Groups</h3>
-            <p>Maximum 4 kids per group to ensure more attention for every child.</p>
+          {whyOrcaFeatures.map((feature, idx) => (
+            <div key={idx} className="info-card">
+              <div className="feature-icon">{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="benefits" className="section benefits-section">
+        <h2>فوائد السباحة</h2>
+        <div className="benefits-grid">
+          <div className="benefit-item">
+            <span className="benefit-icon">💪</span>
+            <h4>تقوية الجسم</h4>
+            <p>تطوير العضلات واللياقة البدنية بطريقة آمنة وفعالة.</p>
           </div>
-          <div className="info-card">
-            <h3>Safe Learning</h3>
-            <p>A friendly and secure environment that helps kids feel confident in the water.</p>
+          <div className="benefit-item">
+            <span className="benefit-icon">🧠</span>
+            <h4>تطوير الثقة</h4>
+            <p>بناء الثقة بالنفس والشجاعة من خلال تحقيق الإنجازات.</p>
           </div>
-          <div className="info-card">
-            <h3>Professional Coaches</h3>
-            <p>Experienced trainers focused on progress, comfort, and real results.</p>
+          <div className="benefit-item">
+            <span className="benefit-icon">😊</span>
+            <h4>الصحة النفسية</h4>
+            <p>تقليل التوتر والقلق والاستمتاع بنشاط ممتع وصحي.</p>
+          </div>
+          <div className="benefit-item">
+            <span className="benefit-icon">🎯</span>
+            <h4>تحديد الأهداف</h4>
+            <p>تعلم كيفية وضع الأهداف والعمل بجد لتحقيقها.</p>
           </div>
         </div>
       </section>
 
       <section id="signup" className="section">
-        <h2>Register Your Child</h2>
+        <h2>سجل طفلك الآن</h2>
+        <p className="section-subtitle">انضم إلى عائلة ORCA واستمتع برحلة تعليمية ممتعة وآمنة</p>
         <SignupForm />
       </section>
 
       <section id="gallery" className="section">
-        <h2>Training Gallery</h2>
+        <h2>معرض التدريبات</h2>
+        <p className="section-subtitle">شاهد لحظات من تدريباتنا المميزة</p>
         <div className="gallery-grid">
-          <img src="/training1.JPG" alt="Training 1" />
-          <img src="/training2.JPG" alt="Training 2" />
-          <img src="/training3.JPG" alt="Training 3" />
+          <img src="/training1.JPG" alt="تدريب 1" />
+          <img src="/training2.JPG" alt="تدريب 2" />
+          <img src="/training3.JPG" alt="تدريب 3" />
         </div>
       </section>
 
       <section id="activities" className="section">
-        <h2>Academy Activities</h2>
+        <h2>أنشطة الأكاديمية</h2>
         <div className="activities-grid">
           {activities.map((act, idx) => (
             <div key={idx} className="activity-card">
+              <div className="activity-icon">{act.icon}</div>
               <img src={act.img} alt={act.title} />
               <h3>{act.title}</h3>
               <p>{act.desc}</p>
@@ -105,9 +149,9 @@ function Home({ onStart, setPage }) {
       </section>
 
       <section id="contact" className="section contact-section">
-        <h2>Contact Us</h2>
+        <h2>تواصل معنا</h2>
         <p className="contact-text">
-          Reach us directly through WhatsApp or Facebook for quick responses and booking.
+          تواصل معنا مباشرة عبر WhatsApp أو Facebook للحصول على إجابات سريعة والحجز.
         </p>
         <div className="contact-links">
           <a
@@ -116,7 +160,7 @@ function Home({ onStart, setPage }) {
             rel="noopener noreferrer"
             className="nav-btn whatsapp-btn"
           >
-            WhatsApp
+            💬 WhatsApp
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61578271988798"
@@ -124,13 +168,16 @@ function Home({ onStart, setPage }) {
             rel="noopener noreferrer"
             className="nav-btn fb-btn"
           >
-            Facebook
+            📘 Facebook
           </a>
         </div>
       </section>
 
       <footer>
-        &copy; {new Date().getFullYear()} ORCA Swimming Academy. All rights reserved.
+        <div className="footer-content">
+          <p>&copy; {new Date().getFullYear()} أكاديمية ORCA للسباحة. جميع الحقوق محفوظة.</p>
+          <p className="footer-location">📍 الأقصر، مصر</p>
+        </div>
       </footer>
     </div>
   );
@@ -237,7 +284,7 @@ function Login({ onLogin, setPage }) {
           ← الرجوع للرئيسية
         </button>
 
-        <img src="/ORCA.png" alt="Logo" className="logo-small" />
+        <img src="/ORCA.png" alt="شعار" className="logo-small" />
 
         {error && <div className="error-message">{error}</div>}
 
@@ -246,7 +293,7 @@ function Login({ onLogin, setPage }) {
             value={name}
             onChange={handleNameChange}
             onKeyDown={handleKeyPress}
-            placeholder="الاسم"
+            placeholder="اسم الطالب"
             className="login-input"
             disabled={loginLoading}
           />
