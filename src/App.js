@@ -154,7 +154,16 @@ function Home({ onStart, setPage, lang, setLang }) {
     setMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Topbar height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -167,16 +176,16 @@ function Home({ onStart, setPage, lang, setLang }) {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}></span>
+            <span style={{ opacity: menuOpen ? 0 : 1 }}></span>
+            <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none' }}></span>
           </button>
           <div className={`nav-menu ${menuOpen ? 'open' : ''}`}>
-            <a href="#about" className="nav-btn" onClick={() => handleNavClick('#about')}>{t.nav.about}</a>
-            <a href="#why" className="nav-btn" onClick={() => handleNavClick('#why')}>{t.nav.why}</a>
-            <a href="#gallery" className="nav-btn" onClick={() => handleNavClick('#gallery')}>{t.nav.gallery}</a>
-            <a href="#activities" className="nav-btn" onClick={() => handleNavClick('#activities')}>{t.nav.activities}</a>
-            <a href="#contact" className="nav-btn" onClick={() => handleNavClick('#contact')}>{t.nav.contact}</a>
+            <a href="#about" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#about'); }}>{t.nav.about}</a>
+            <a href="#why" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#why'); }}>{t.nav.why}</a>
+            <a href="#gallery" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#gallery'); }}>{t.nav.gallery}</a>
+            <a href="#activities" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#activities'); }}>{t.nav.activities}</a>
+            <a href="#contact" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}>{t.nav.contact}</a>
           </div>
         </div>
         <div className="nav-actions">
