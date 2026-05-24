@@ -25,16 +25,13 @@ function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate inputs
     const nameErr = validateName(name);
     const phoneErr = validatePhone(phone);
-    
+
     setNameError(nameErr);
     setPhoneError(phoneErr);
-    
-    if (nameErr || phoneErr) {
-      return;
-    }
+
+    if (nameErr || phoneErr) return;
 
     try {
       setLoading(true);
@@ -44,7 +41,10 @@ function SignupForm() {
       const res = await fetch(getFullApiUrl(CONFIG.REGISTER_ENDPOINT), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone }),
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: phone.trim(),
+        }),
       });
 
       if (!res.ok) {
@@ -58,8 +58,7 @@ function SignupForm() {
       setSuccess(true);
       setName("");
       setPhone("");
-      
-      // Show success message for 3 seconds
+
       setTimeout(() => setSuccess(false), 3000);
     } catch (err) {
       setError(err.message || CONFIG.ERRORS.NETWORK_ERROR);
@@ -72,6 +71,7 @@ function SignupForm() {
   return (
     <form onSubmit={handleSubmit} className="signup-form">
       {error && <div className="error-message">{error}</div>}
+
       {success && (
         <div className="success-message">
           {CONFIG.SUCCESS.SIGNUP_SUCCESS}
@@ -85,6 +85,7 @@ function SignupForm() {
           placeholder="اسم الطالب"
           required
           disabled={loading}
+          className="signup-input"
         />
         {nameError && <span className="input-error">{nameError}</span>}
       </div>
@@ -96,14 +97,12 @@ function SignupForm() {
           placeholder="رقم الهاتف"
           required
           disabled={loading}
+          className="signup-input"
         />
         {phoneError && <span className="input-error">{phoneError}</span>}
       </div>
 
-      <button 
-        type="submit"
-        disabled={loading || !!nameError || !!phoneError}
-      >
+      <button type="submit" disabled={loading || !!nameError || !!phoneError}>
         {loading ? "جاري الإرسال..." : "تسجيل"}
       </button>
     </form>
