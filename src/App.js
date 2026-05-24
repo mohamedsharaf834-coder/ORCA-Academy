@@ -44,9 +44,10 @@ function Home({ onStart, setPage }) {
 
         <section id="about" className="section about-section">
           <span className="badge">Luxor City, Egypt</span>
-          <h1>ORCA Swimming Academy</h1>
-          <p className="main-desc">
-            Welcome to ORCA Academy 🐋<br />
+          <h1 className="hero-title">ORCA Swimming Academy</h1>
+          <p className="main-desc hero-subtitle">
+            Welcome to ORCA Academy 🐋
+            <br />
             Learn, train, and achieve excellence in swimming with professional coaches,
             modern programs, and small groups of maximum 4 children for better focus.
           </p>
@@ -189,9 +190,7 @@ function Login({ onLogin, setPage }) {
     setNameError(nameErr);
     setPhoneError(phoneErr);
 
-    if (nameErr || phoneErr) {
-      return;
-    }
+    if (nameErr || phoneErr) return;
 
     try {
       setLoginLoading(true);
@@ -218,9 +217,7 @@ function Login({ onLogin, setPage }) {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter" && !loginLoading) {
-      handleLogin();
-    }
+    if (e.key === "Enter" && !loginLoading) handleLogin();
   };
 
   if (loading) {
@@ -239,6 +236,7 @@ function Login({ onLogin, setPage }) {
         <button className="back-btn" onClick={() => setPage("home")} disabled={loginLoading}>
           ← الرجوع للرئيسية
         </button>
+
         <img src="/ORCA.png" alt="Logo" className="logo-small" />
 
         {error && <div className="error-message">{error}</div>}
@@ -247,7 +245,7 @@ function Login({ onLogin, setPage }) {
           <input
             value={name}
             onChange={handleNameChange}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
             placeholder="الاسم"
             className="login-input"
             disabled={loginLoading}
@@ -259,7 +257,7 @@ function Login({ onLogin, setPage }) {
           <input
             value={phone}
             onChange={handlePhoneChange}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
             placeholder="رقم الهاتف"
             className="login-input"
             disabled={loginLoading}
