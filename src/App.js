@@ -186,6 +186,12 @@ function Home({ onStart, setPage, lang, setLang }) {
             <a href="#gallery" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#gallery'); }}>{t.nav.gallery}</a>
             <a href="#activities" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#activities'); }}>{t.nav.activities}</a>
             <a href="#contact" className="nav-btn" onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}>{t.nav.contact}</a>
+            <button className="nav-btn member-btn" onClick={() => { setMenuOpen(false); setPage("login"); }}>
+              {t.nav.members}
+            </button>
+            <button className="nav-btn lang-switch-menu" onClick={() => { setMenuOpen(false); setLang(lang === 'en' ? 'ar' : 'en'); }}>
+              {lang === 'en' ? 'العربية 🇪🇬' : 'English 🇺🇸'}
+            </button>
           </div>
         </div>
         <div className="nav-actions">
