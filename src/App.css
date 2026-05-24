@@ -498,7 +498,7 @@ html {
   left: 0;
 }
 
-.feature-icon {
+.info-icon {
   font-size: 48px;
   margin-bottom: 16px;
   display: inline-block;
@@ -1053,29 +1053,48 @@ footer {
   }
 }
 
-/* ========== MOBILE ========== */
+/* ============================================================
+   ========== RESPONSIVE DESIGN - تحسينات الموبايل والتابلت ==========
+   ============================================================ */
+
+/* ========== MOBILE (Up to 768px) ========== */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 44px;
+    font-size: 36px; /* Reduced from 44px for better fit */
     letter-spacing: 1px;
   }
 
   .hero-subtitle {
-    font-size: 18px;
+    font-size: 17px; /* Adjusted from 18px */
+    line-height: 1.6;
   }
 
   .topbar {
-    padding: 12px 10px;
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column; /* Stack logo and nav on mobile */
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
   }
 
   .nav-btn {
-    padding: 10px 16px;
+    padding: 8px 14px;
     font-size: 13px;
   }
 
+  .nav-actions {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
   .member-btn {
-    padding: 10px 16px;
+    padding: 8px 14px;
   }
 
   .gallery-grid img {
@@ -1085,21 +1104,21 @@ footer {
 
   .section {
     width: 95%;
-    padding: 24px;
-    margin: 30px auto;
+    padding: 20px;
+    margin: 25px auto;
   }
 
   .section h2 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .login-box {
     width: 95%;
-    padding: 35px 25px;
+    padding: 30px 20px;
   }
 
   .logo-large {
-    width: 180px;
+    width: 170px;
   }
 
   .logo-small {
@@ -1114,29 +1133,38 @@ footer {
   .whatsapp-btn,
   .fb-btn,
   .secondary-link {
-    padding: 14px 32px;
+    padding: 14px 28px;
     font-size: 16px;
+    width: 100%; /* Full width buttons on mobile */
+    text-align: center;
   }
 
   .activity-card {
     padding: 18px;
   }
 
+  .schedule-container {
+    padding: 120px 10px 40px;
+  }
+
   .schedule-table {
-    font-size: 14px;
+    display: block;
+    overflow-x: auto; /* Enable horizontal scroll for table */
+    white-space: nowrap;
+    font-size: 13px;
   }
 
   .schedule-table th,
   .schedule-table td {
-    padding: 12px;
+    padding: 10px;
   }
 
   .schedule-header {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   .home-container {
-    padding: 120px 20px 40px;
+    padding: 120px 15px 40px;
   }
 
   .activities-grid {
@@ -1144,7 +1172,7 @@ footer {
   }
 
   .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* Changed from 2 to 1 for readability */
   }
 
   .why-grid {
@@ -1153,6 +1181,7 @@ footer {
 
   .contact-links {
     flex-direction: column;
+    width: 100%;
   }
 
   .whatsapp-btn,
@@ -1162,7 +1191,7 @@ footer {
   }
 }
 
-/* ========== TABLET ========== */
+/* ========== TABLET (769px to 1024px) ========== */
 @media (max-width: 1024px) and (min-width: 769px) {
   .section {
     width: 95%;
@@ -1187,5 +1216,21 @@ footer {
 
   .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========== SMALL MOBILE (Up to 480px) ========== */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  
+  .logo-large {
+    width: 140px;
+  }
+
+  .nav-btn {
+    padding: 6px 10px;
+    font-size: 12px;
   }
 }
